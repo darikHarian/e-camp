@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CONTROL DE FLUJOS Y OBJETOS</title>
+</head>
+<body>
+    <script>
+        let salida = false
+        
+        do {
+            let opciones = prompt("Seleccione que desea hacer:\n1.- Calcular cuál número es mayor\n2.- Sumar\n3.- Restar\n4.- Multiplicar\n5.- Dividir\n6.- Mostrar los números ingresados\n7.- Salir")
+            let opcion = parseInt(opciones)
+
+            switch (opcion) {
+                case 1:
+                    let num1 = prompt("Ingrese el primer número")
+                    let num2 = prompt("Ingrese el segundo número")
+
+                    comparador(num1,num2)
+                    break;
+                case 2:
+                    let sumNum1 = prompt("Ingrese el primer número")
+                    let sumNum2 = prompt("Ingrese el segundo número")
+
+                    suma(sumNum1,sumNum2)
+                    break;
+                case 3:
+                    let restNum1 = prompt("Ingrese el primer número")
+                    let restNum2 = prompt("Ingrese el segundo número")
+
+                    resta(restNum1,restNum2)
+                    break;
+                case 4:
+                    let multNum1 = prompt("Ingrese el primer número")
+                    let multNum2 = prompt("Ingrese el segundo número")
+
+                    multiplicacion(multNum1,multNum2)
+                    break;
+                case 5:
+                    let repetir = true
+
+                    do {
+                        let divNum1 = prompt("Ingrese el primer número")
+                        let divNum2 = prompt("Ingrese el segundo número")
+
+                        if (divNum1 === "0" || divNum2 === "0") {
+                            alert("Ingrese números distintos a CERO")
+                        } else {
+                            division(divNum1,divNum2)
+                            repetir = false
+                        }
+                    } while (repetir == true)
+                    break;
+                case 6:
+                    let numb1 = prompt("Ingrese el primer número")
+                    let numb2 = prompt("Ingrese el segundo número")
+
+                    ingresados(numb1,numb2)
+                    break;
+                case 7:
+                    alert("Gracias por participar")
+                    salida = true
+                    break;
+                default:
+                    alert("¡Elección incorrecta!")
+                    break;
+            }
+        } while(salida == false)
+        
+        function comparador(num1, num2) {
+            if (num1 === "" || num2 === "" || num1 === null || num2 === null) {
+                alert("¡Error!\nAlgún valor no ha sido ingresado")
+            } else {
+                let number1 = parseInt(num1)
+                let number2 = parseInt(num2)
+
+                if (number1 > number2) {
+                    alert(number1 + " es mayor que " + number2)
+                } else if (number1 < number2) {
+                    alert(number2 + " es mayor que " + number1)
+                } else {
+                    alert("Ambos números son exactamente iguales")
+                }
+            }            
+        }
+
+        function suma(num1,num2) {
+            if (num1 === "" || num2 === "" || num1 === null || num2 === null) {
+                alert("¡Error!\nAlgún valor no ha sido ingresado")
+            } else {
+                let number1 = parseInt(num1)
+                let number2 = parseInt(num2)
+
+                let resultado = number1 + number2
+
+                alert("El resultado de la suma es: "+ resultado)
+            }          
+        }
+
+        function resta(num1,num2) {
+            if (num1 === "" || num2 === "" || num1 === null || num2 === null) {
+                alert("¡Error!\nAlgún valor no ha sido ingresado")
+            } else {
+                let number1 = parseInt(num1)
+                let number2 = parseInt(num2)
+
+                let resultado = number1 - number2
+
+                alert("El resultado de la resta es: "+ resultado)
+            }          
+        }
+
+        function multiplicacion(num1,num2) {
+            if (num1 === "" || num2 === "" || num1 === null || num2 === null) {
+                alert("¡Error!\nAlgún valor no ha sido ingresado")
+            } else {
+                let number1 = parseInt(num1)
+                let number2 = parseInt(num2)
+
+                let resultado = number1 * number2
+
+                alert("El resultado de la multiplicacion es: "+ resultado)
+            }          
+        }
+
+        function division(num1,num2) {
+            if (num1 === "" || num2 === "" || num1 === null || num2 === null) {
+                alert("¡Error!\nAlgún valor no ha sido ingresado")
+            } else {
+                let number1 = parseInt(num1)
+                let number2 = parseInt(num2)
+
+                let resultado = number1 / number2
+
+                alert("El resultado de la división es: "+ resultado)
+            }          
+        }
+
+        function ingresados(num1,num2) {
+            if (num1 === "" || num2 === "" || num1 === null || num2 === null) {
+                alert("¡Error!\nAlgún valor no ha sido ingresado")
+            } else {
+
+                alert("El primer número ingresado es: " + num1 + "\nEl segundo número ingresado es: " + num2)
+            }          
+        }
+    </script>
+</body>
+</html>
