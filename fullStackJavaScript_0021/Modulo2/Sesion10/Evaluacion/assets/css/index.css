@@ -1,0 +1,95 @@
+::-webkit-scrollbar {
+    display: none;
+}
+
+body {
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+#nav-logo {
+    width: 2em;
+}
+
+.header-bg-glass {
+    background: url("./../img/fondo.jpg");
+    background-size: calc(23em);
+}
+
+.text-decoration-overline {
+    text-decoration: overline;
+}
+
+.fs-7 {
+    font-size: 11px;
+}
+
+.fs-8 {
+    font-size: 9px;
+}
+
+.w-40 {
+    width: 40%;
+}
+
+.card img {
+    height: 13.5em;
+}
+
+footer {
+    height: 5rem;
+}
+
+.footer-bg-glass {
+    background: url("./../img/fondo.jpg");
+}
+
+@media only screen and (min-width: 768px) { /* TABLET */
+
+    .card img {
+        height: 17em;
+    }
+
+    .footer-bg-glass {  
+        background-size: calc(70em);
+    }
+
+}
+
+@media only screen and (min-width: 992px) { /* DESKTOP */
+    form {
+        width: 75%;
+    }
+
+    footer {
+        height: 7rem;
+    }
+}
+
+@media only screen and (min-width: 1200px) { /* EXTRA LARGE DESKTOP */
+    .header-bg-glass {
+        background-size: calc(19.1em);
+    }
+
+    .nav-link {
+        font-size: 10px;
+    }
+
+    .card img {
+        height: 12em;
+    }
+
+    label, input, button {
+        font-size: 12px !important;
+    }
+
+    footer {
+        height: 12rem;
+    }
+
+    .footer-bg-glass {  
+        background-size: calc(46em);
+    }
+}
