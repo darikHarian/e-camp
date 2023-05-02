@@ -1,5 +1,4 @@
 let card = document.querySelector('button')
-// let newJoke = document.querySelector('#cardText')
 
 card.addEventListener('click', () => {
 
