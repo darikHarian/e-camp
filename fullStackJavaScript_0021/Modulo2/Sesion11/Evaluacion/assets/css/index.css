@@ -1,0 +1,18 @@
+body {
+    background: url('./../img/studio_ghibli.jpg');
+}
+
+.bg-select {
+    background-color: rgba(200,200,200,.5);
+    box-shadow: 2px -2px 5px rgb(0, 75, 167);
+}
+
+.blur {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    height: 100%;
+}
+
+.card-body {
+    text-shadow: 1px 2px 2px #000;
+}
