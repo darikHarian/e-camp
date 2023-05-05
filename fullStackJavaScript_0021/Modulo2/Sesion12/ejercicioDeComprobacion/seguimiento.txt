@@ -1,0 +1,91 @@
+darik@Dariks-MBP ejercicioDeComprobacion % mkdir GIT
+darik@Dariks-MBP ejercicioDeComprobacion % ls
+GIT
+darik@Dariks-MBP ejercicioDeComprobacion % cd GIT
+darik@Dariks-MBP GIT % touch archivo.txt
+darik@Dariks-MBP GIT % ls
+archivo.txt
+darik@Dariks-MBP GIT % git init
+Initialized empty Git repository in /Users/darik/Library/Mobile Documents/com~apple~CloudDocs/Bootcamps/Full Stack JavaScript/toGithub/fullStackJavaScript_0021/Modulo2/Sesion12/ejercicioDeComprobacion/GIT/.git/
+darik@Dariks-MBP GIT % git status
+On branch main
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        archivo.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+darik@Dariks-MBP GIT % git add .
+darik@Dariks-MBP GIT % git commit -m "GIT v1"
+[main (root-commit) 4b1b7cd] GIT v1
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 archivo.txt
+ darik@Dariks-MBP GIT % git log
+commit 4b1b7cd3f31e1a8eeb102506a0ec0ea408068584 (HEAD -> main)
+Author: Darik Harian Khal <contacto@alphacorp.cl>
+Date:   Thu May 4 21:25:01 2023 -0400
+
+    GIT v1
+darik@Dariks-MBP GIT % nano archivo.txt
+(ctrl + w; ctrl + x)
+darik@Dariks-MBP GIT % git status
+On branch main
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   archivo.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+darik@Dariks-MBP GIT % git diff
+diff --git a/archivo.txt b/archivo.txt
+index e69de29..013ff90 100644
+--- a/archivo.txt
++++ b/archivo.txt
+@@ -0,0 +1 @@
++Este es un cambio en el documento
+darik@Dariks-MBP GIT % git add .
+darik@Dariks-MBP GIT % git commit -m "GIT archivo.txt modificado"
+[main 75947a7] GIT archivo.txt modificado
+ 1 file changed, 1 insertion(+)
+darik@Dariks-MBP GIT % git log
+commit 75947a7cca27de7d0d5cb37c916f0de0fff004ce (HEAD -> main)
+Author: Darik Harian Khal <contacto@alphacorp.cl>
+Date:   Thu May 4 22:24:37 2023 -0400
+
+    GIT archivo.txt modificado
+
+commit 4b1b7cd3f31e1a8eeb102506a0ec0ea408068584
+Author: Darik Harian Khal <contacto@alphacorp.cl>
+Date:   Thu May 4 21:25:01 2023 -0400
+
+    GIT v1
+darik@Dariks-MBP GIT % nano archivo.txt
+(ctrl + w; ctrl + x)
+darik@Dariks-MBP GIT % git diff
+diff --git a/archivo.txt b/archivo.txt
+index 013ff90..f744851 100644
+--- a/archivo.txt
++++ b/archivo.txt
+@@ -1 +1,2 @@
+ Este es un cambio en el documento
++Este es otro cambio en el documento
+darik@Dariks-MBP GIT % git restore archivo.txt 
+darik@Dariks-MBP GIT % nano archivo.txt
+  UW PICO 5.09                                                                                      File: archivo.txt                                                                                        
+
+Este es un cambio en el documento
+(ctrl + x)
+darik@Dariks-MBP GIT % git log
+commit 75947a7cca27de7d0d5cb37c916f0de0fff004ce (HEAD -> main)
+Author: Darik Harian Khal <contacto@alphacorp.cl>
+Date:   Thu May 4 22:24:37 2023 -0400
+
+    GIT archivo.txt modificado
+
+commit 4b1b7cd3f31e1a8eeb102506a0ec0ea408068584
+Author: Darik Harian Khal <contacto@alphacorp.cl>
+Date:   Thu May 4 21:25:01 2023 -0400
+
+    GIT v1
