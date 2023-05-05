@@ -1,0 +1,93 @@
+darik@Dariks-MBP Evaluacion % git init
+Initialized empty Git repository in /Users/darik/Library/Mobile Documents/com~apple~CloudDocs/Bootcamps/Full Stack JavaScript/toGithub/fullStackJavaScript_0021/Modulo2/Sesion12/Evaluacion/.git/
+darik@Dariks-MBP Evaluacion % git add .
+darik@Dariks-MBP Evaluacion % git commit -m "Nimrodel - Commit inicial"
+[main (root-commit) d1c241a] Nimrodel - Commit inicial
+ 17 files changed, 430 insertions(+)
+ create mode 100644 assets/.DS_Store
+ create mode 100644 assets/css/index.css
+ create mode 100644 assets/img/.DS_Store
+ create mode 100644 assets/img/bebidas.jpg
+ create mode 100644 assets/img/carousel/chorillana.jpg
+ create mode 100644 assets/img/carousel/mojito.jpg
+ create mode 100644 assets/img/carousel/vino.jpg
+ create mode 100644 assets/img/favicon.png
+ create mode 100644 assets/img/fondo.jpg
+ create mode 100644 assets/img/logo.png
+ create mode 100644 assets/img/shop.jpeg
+ create mode 100644 assets/img/tablas.jpg
+ create mode 100644 assets/js/.DS_Store
+ create mode 100644 assets/js/index.js
+ create mode 100644 index.html
+ create mode 100644 redirect.html
+ create mode 100644 seguimiento.txt
+ darik@Dariks-MBP Evaluacion % git add .
+darik@Dariks-MBP Evaluacion % git commit -m "Nimrodel - v2. Implementación de carousel dentro de un modal" 
+[main 5d25886] Nimrodel - v2. Implementación de carousel dentro de un modal
+ 6 files changed, 70 insertions(+), 5 deletions(-)
+ create mode 100644 .DS_Store
+ create mode 100644 assets/img/IMG1.jpg
+ create mode 100644 assets/img/IMG2.jpg
+darik@Dariks-MBP Evaluacion % git log
+commit 5d25886ebf8dc9979045161d2821983a13720311 (HEAD -> main)
+Author: Darik Harian Khal <contacto@alphacorp.cl>
+Date:   Fri May 5 15:12:53 2023 -0400
+
+    Nimrodel - v2. Implementación de carousel dentro de un modal
+
+commit d1c241a84d9edb1483c3f3fdb108f05ebf1f16b7
+Author: Darik Harian Khal <contacto@alphacorp.cl>
+Date:   Thu May 4 23:01:22 2023 -0400
+
+    Nimrodel - Commit inicial
+darik@Dariks-MBP Evaluacion % git add .
+darik@Dariks-MBP Evaluacion % git commit -m "Nimrodel - v3. Aplicando estilos para mejorar la vista de la información"
+[main 66e8da9] Nimrodel - v3. Aplicando estilos para mejorar la vista de la información
+ 3 files changed, 45 insertions(+), 16 deletions(-)
+darik@Dariks-MBP Evaluacion % git log
+commit 66e8da9af5ce213f644dd31caa892ce4a9bc0dce (HEAD -> main)
+Author: Darik Harian Khal <contacto@alphacorp.cl>
+Date:   Fri May 5 15:58:17 2023 -0400
+
+    Nimrodel - v3. Aplicando estilos para mejorar la vista de la información
+
+commit 5d25886ebf8dc9979045161d2821983a13720311
+Author: Darik Harian Khal <contacto@alphacorp.cl>
+Date:   Fri May 5 15:12:53 2023 -0400
+
+    Nimrodel - v2. Implementación de carousel dentro de un modal
+
+commit d1c241a84d9edb1483c3f3fdb108f05ebf1f16b7
+Author: Darik Harian Khal <contacto@alphacorp.cl>
+Date:   Thu May 4 23:01:22 2023 -0400
+
+    Nimrodel - Commit inicial
+document.querySelector('#nav3').addEventListener('click', function() {
+    let navbarCollapse = document.querySelector('#navbarSupportedContent');
+    let bsCollapse = new bootstrap.Collapse(navbarCollapse);
+    bsCollapse.hide();
+})
+darik@Dariks-MBP Evaluacion % git log
+commit 8a906965d16f596972cd81f54a35fd5336afbb9d (HEAD -> main)
+Author: Darik Harian Khal <contacto@alphacorp.cl>
+Date:   Fri May 5 16:37:08 2023 -0400
+
+    Nimrodel - v4. Aplicando cambios al JS para mejorar la navegación en el sitio
+
+commit 66e8da9af5ce213f644dd31caa892ce4a9bc0dce
+Author: Darik Harian Khal <contacto@alphacorp.cl>
+Date:   Fri May 5 15:58:17 2023 -0400
+
+    Nimrodel - v3. Aplicando estilos para mejorar la vista de la información
+
+commit 5d25886ebf8dc9979045161d2821983a13720311
+Author: Darik Harian Khal <contacto@alphacorp.cl>
+Date:   Fri May 5 15:12:53 2023 -0400
+
+    Nimrodel - v2. Implementación de carousel dentro de un modal
+
+commit d1c241a84d9edb1483c3f3fdb108f05ebf1f16b7
+Author: Darik Harian Khal <contacto@alphacorp.cl>
+Date:   Thu May 4 23:01:22 2023 -0400
+
+    Nimrodel - Commit inicial
