@@ -1,0 +1,23 @@
+body {
+    background: url('./../img/background.jpg');
+}
+
+nav {
+    z-index: 1 !important;
+    background: rgb(6,57,142);
+    background: linear-gradient(270deg, rgba(6,57,142,.35) 8%, rgba(39,94,193,.35) 85%);
+}
+
+#nav-logo {
+    position: relative;
+    margin-top: -10px;
+    z-index: 2;
+}
+
+.w-10 {
+    width: 10%;
+}
+
+.w-15 {
+    width: 12rem;
+}
