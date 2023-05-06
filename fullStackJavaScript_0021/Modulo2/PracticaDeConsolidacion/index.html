@@ -18,34 +18,30 @@
 <body>
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark rounded-5 rounded-top-0 fixed-top py-xl-0">
-            <div class="row container text-center mx-auto my-3">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <div class="container-fluid mx-auto my-3">
+                <button class="navbar-toggler rounded-pill border border-primary-subtle  mx-auto w-50" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <ul class="col-4 navbar-nav d-none d-lg-flex me-lg-5 pe-lg-5 mb-2 mb-lg-0">
+                <ul class="col-6 navbar-nav d-none d-lg-flex justify-content-center">
                     <li class="nav-item">
-                        <a id="nav1" class="nav-link active" aria-current="page" href="#products" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">Inicio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a id="nav2" class="nav-link" href="#" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">Sobre nosotros</a>
+                        <a id="devLink1" class="btn rounded-pill border border-success text-warning text-shadow-black drop-shadow-black nav-link active" aria-current="page" href="#products" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">DeveloperMon</a>
                     </li>
                 </ul>
-                <div class="col-4"></div>
-                <div class="col-4 collapse navbar-collapse justify-content-lg-end justify-content-xl-center" id="navbarSupportedContent">
-                    <ul class="navbar-nav d-flex d-lg-none me-lg-5 pe-lg-5 mb-2 mb-lg-0">
+
+                <ul class="col-6 navbar-nav d-none d-lg-flex justify-content-center">
+                    <li class="nav-item">
+                        <a id="repoLink1" class="btn rounded-pill border border-danger text-warning text-shadow-black drop-shadow-black nav-link active" aria-current="page" href="#products" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">RepoCodeMon</a>
+                    </li>
+                </ul>
+                <div class="col-12 collapse navbar-collapse justify-content-lg-end justify-content-xl-center" id="navbarSupportedContent">
+                    <ul class="navbar-nav d-flex d-lg-none">
                         <li class="nav-item">
-                            <a id="nav1" class="nav-link active" aria-current="page" href="#products" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">Inicio</a>
+                            <a id="devLink2" class="nav-link active" aria-current="page" href="#" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">DeveloperMon</a>
                         </li>
                         <li class="nav-item">
                             <span data-bs-toggle="modal" data-bs-target="#modalAbout">
-                                <a id="nav2" class="nav-link" href="#" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">Sobre nosotros</a>
+                                <a id="repoLink2" class="nav-link" href="#" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">RepoCodeMon</a>
                             </span>
-                        </li>
-                        <li class="nav-item">
-                            <a id="nav3" class="nav-link" href="#communicateSection" onclick="formCommunicate()" data-bs-target="#navbarSupportedContent">Comuniquémonos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a id="nav4" class="nav-link" href="#bookingSection" onclick="formBooking()" data-bs-target="#navbarSupportedContent">Reserva</a>
                         </li>
                     </ul>
                 </div>  
@@ -58,7 +54,20 @@
         </div>
     </header>
     <main>
-
+        <div class="container mt-5 pt-5 mt-lg-3">
+            <form class="row d-flex justify-content-center" role="search">
+                <input id="formBuscar" class="col-12 col-xl-11 text-center form-control rounded-pill me-2" type="search" placeholder="Ingrese el nombre del Digimon" aria-label="Search">
+                <button id="botonBuscar" class="col-12 col-xl-1 btn btn-primary text-white rounded-pill btn-outline-success mt-2 mt-lg-0" type="submit">Buscar</button>
+            </form>
+        </div>
+        <section id="cards" class="container mt-5">
+            <div id="mainCard" class="mx-auto w-25">
+                <div class="card border border-2 border-danger-subtle bg-transparent rounded-4">
+                    <img class="card-img w-75 mx-auto" src="./assets/img/silhoette.png" alt="Silueta">
+                </div>
+            </div>
+            <div id="thumbnails"></div>
+        </section>
     </main>
     <footer>
 
