@@ -38,7 +38,7 @@ nav {
 #nav-logo {
     position: relative;
     margin-top: -10px;
-    z-index: 2;
+    z-index: 1;
 }
 
 #nav-logo img {
@@ -84,6 +84,17 @@ nav {
     width: 30vw;
 }
 
+#digiCard {
+    background: url('./../img/digivice.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#digiCard img {
+    width: 70vw
+}
+
 #thumbnails img {
     width: 70vw;
 }
@@ -106,7 +117,8 @@ nav {
     }
 
     #nav-logo img {
-        width:22vw
+        width:22vw;
+        z-index: 2;
     }
 }
 
