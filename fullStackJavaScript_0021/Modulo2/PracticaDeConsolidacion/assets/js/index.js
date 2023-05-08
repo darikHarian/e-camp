@@ -7,10 +7,9 @@ digiSearch.addEventListener('click', (event) => {
     fetch(`https://digimon-api.vercel.app/api/digimon/name/${selectName}`)
     .then(response => response.json())
     .then(info => {
-        digiSearch()
+        digiCard.innerHTML = ''
+        digiCard.innerHTML = `
+        <img src="${info[0].img}" alt="" class="card-img rounded-circle drop-shadow-white mx-auto p-5">
+        `
     })
-
-    function digiSearch() {
-        alert(info)
-    }
 })
