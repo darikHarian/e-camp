@@ -17,7 +17,7 @@ body {
 /* ------------- */
 
 nav {
-    z-index: 1 !important;
+    z-index: 2 !important;
     background: rgb(6,57,142);
     background: linear-gradient(270deg, rgba(6,57,142,.9) 8%, rgba(39,94,193,.9) 85%);
 }
@@ -118,7 +118,7 @@ nav {
 
     #nav-logo img {
         width:22vw;
-        z-index: 2;
+        z-index: 3;
     }
 }
 
