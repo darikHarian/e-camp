@@ -2,6 +2,20 @@ body {
     background: url('./../img/background.jpg');
 }
 
+/* GLOBALS */
+.fs-7 {
+    font-size: 12px;
+}
+
+.w-10 {
+    width: 10%;
+}
+
+.w-15 {
+    width: 12rem;
+}
+/* ------------- */
+
 nav {
     z-index: 1 !important;
     background: rgb(6,57,142);
@@ -13,19 +27,24 @@ nav {
     background: linear-gradient(270deg, rgba(16,78,180,1) 26%, rgba(110,39,193,1) 79%);
 }
 
+#digivice {
+    margin-top: 100px;
+}
+
+#digivice img {
+    width: 80px;
+}
+
 #nav-logo {
     position: relative;
     margin-top: -10px;
     z-index: 2;
 }
 
-.w-10 {
-    width: 10%;
+#nav-logo img {
+    width: 80vw
 }
 
-.w-15 {
-    width: 12rem;
-}
 
 #devLink1 {
     background: rgb(39,193,55);
@@ -65,15 +84,29 @@ nav {
     width: 30vw;
 }
 
+#thumbnails img {
+    width: 70vw;
+}
+
+.modal-content {
+    background: url('./../img/modal-bg.png');
+}
+
 /* MD */
 @media screen and (min-width: 768px){
-
+    #nav-logo img {
+        width:40vw
+    }
 }
 
 /* LG */
 @media screen and (min-width: 992px){
     #formBuscar {
         width: 40vw;
+    }
+
+    #nav-logo img {
+        width:22vw
     }
 }
 
@@ -85,5 +118,9 @@ nav {
 
     #formBuscar {
         width: 30vw;
+    }
+
+    #nav-logo img {
+        width: 11vw
     }
 }
