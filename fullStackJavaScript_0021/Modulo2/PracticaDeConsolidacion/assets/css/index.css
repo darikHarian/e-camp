@@ -67,14 +67,28 @@ nav {
 }
 
 
-#devLink1 {
+#historyLink1 {
     background: rgb(39,193,55);
     background: linear-gradient(270deg, rgba(39,193,55,.7) 16%, rgba(24,142,6,.7) 79%);
 }
 
-#repoLink1 {
+#apiLink1 {
     background: rgb(142,6,6);
     background: linear-gradient(270deg, rgba(142,6,6,.7) 9%, rgba(193,39,39,.7) 79%);
+}
+
+#nombre, #nivel {
+    width: 300px;
+}
+
+#nombre {
+    background: rgb(39,193,55);
+    background: linear-gradient(270deg, rgba(39,193,55,.7) 16%, rgba(24,142,6,.7) 79%);
+}
+
+#nivel {
+    background: rgb(235,224,59);
+    background: linear-gradient(270deg, rgba(235,224,59,.7) 26%, rgba(198,185,27,.7) 79%);
 }
 
 #formBuscar {

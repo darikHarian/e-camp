@@ -9,8 +9,19 @@ digiSearch.addEventListener('click', (event) => {
     .then(info => {
         digiCard.innerHTML = ''
         digiCard.innerHTML = `
-        <img src="${info[0].img}" alt="" class="card-img rounded-circle drop-shadow-white mx-auto p-5">
+            <img src="${info[0].img}" alt="" class="card-img rounded-circle drop-shadow-black mx-auto p-5">
         `
+        document.querySelector('#nombre').setAttribute("class", "d-block text-center text-white text-shadow-black drop-shadow-black rounded-pill mt-3 py-1 mx-auto")
+        nombre.innerHTML = ''
+        nombre.innerHTML = `
+                <h3 class="pt-1">Nombre: ${info[0].name}</h3>
+            `
+
+        document.querySelector('#nivel').setAttribute("class", "d-block text-center text-white text-shadow-black drop-shadow-black rounded-pill mt-2 py-1 mx-auto")
+        nivel.innerHTML = ''
+        nivel.innerHTML = `
+                <h3 class="pt-1">Nivel: ${info[0].level}</h3>
+            `
     })
 })
 
