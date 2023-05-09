@@ -48,14 +48,6 @@ nav {
     background: linear-gradient(270deg, rgba(16,78,180,1) 26%, rgba(110,39,193,1) 79%);
 }
 
-#digivice {
-    margin-top: 100px;
-}
-
-#digivice img {
-    width: 80px;
-}
-
 #nav-logo {
     position: relative;
     margin-top: 100px;
@@ -107,7 +99,7 @@ nav {
 }
 
 #digiCard img {
-    width: 70vw
+    width: 50vw
 }
 
 #digiThumb {
