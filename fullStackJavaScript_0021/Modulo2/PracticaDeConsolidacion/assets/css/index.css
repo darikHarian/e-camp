@@ -69,8 +69,12 @@ nav {
     background: linear-gradient(270deg, rgba(142,6,6,.7) 9%, rgba(193,39,39,.7) 79%);
 }
 
-#nombre, #nivel {
-    width: 25 0px;
+#nombre {
+    width: 350px;
+}
+
+#nivel {
+    width: 330px;
 }
 
 #nombre {
@@ -106,8 +110,8 @@ nav {
     list-style: none;
 }
 
-#digiThumb li button {
-    width: 350px;
+#digiThumb li {
+    width: 300px;
     background: rgb(16,78,180);
     background: linear-gradient(270deg, rgba(16,78,180,.7) 26%, rgba(110,39,193,.7) 79%);
 }

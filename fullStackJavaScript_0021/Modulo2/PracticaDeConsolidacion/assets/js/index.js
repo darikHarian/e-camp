@@ -11,13 +11,13 @@ digiSearch.addEventListener('click', (event) => {
         digiCard.innerHTML = `
             <img src="${info[0].img}" alt="" class="card-img rounded-circle drop-shadow-black mx-auto p-5">
         `
-        document.querySelector('#nombre').setAttribute("class", "d-block text-center text-white text-shadow-black drop-shadow-black rounded-pill mt-3 py-1 mx-auto")
+        document.querySelector('#nombre').setAttribute("class", "d-block text-center text-white text-shadow-black drop-shadow-black mt-3 py-1 mx-auto")
         nombre.innerHTML = ''
         nombre.innerHTML = `
             <h3 class="pt-1">Nombre: ${info[0].name}</h3>
         `
 
-        document.querySelector('#nivel').setAttribute("class", "d-block text-center text-white text-shadow-black drop-shadow-black rounded-pill mt-2 py-1 mx-auto")
+        document.querySelector('#nivel').setAttribute("class", "d-block text-center text-white text-shadow-black drop-shadow-black mt-2 py-1 mx-auto")
         nivel.innerHTML = ''
         nivel.innerHTML = `
             <h3 class="pt-1">Nivel: ${info[0].level}</h3>
@@ -33,8 +33,8 @@ window.onload = function() {
         i = 1
         for (let digimon of list) {
             digiThumb.innerHTML += `
-                <li>
-                    <a id="${digimon.name}" href="#nav-logo" class="btn listButton text-white text-shadow-black drop-shadow-black rounded-pill border-0 fs-1 my-1">${digimon.name} <img class="rounded-circle mb-1" style="width:30px" src="${digimon.img}"></a>
+                <li class="text-shadow-black drop-shadow-black text-center rounded-pill border-0 fs-1 my-1">
+                    <a id="${digimon.name}" class="btn listButton text-white" href="#nav-logo">${digimon.name} <img class="rounded-circle" style="width:30px" src="${digimon.img}"></a>
                 </li>
             ` 
         }       
