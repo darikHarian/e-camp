@@ -23,6 +23,7 @@ digiSearch.addEventListener('click', (event) => {
             <h3 class="pt-1">Nivel: ${info[0].level}</h3>
         `
     })
+    .catch(error => console.log(error));
 })
 
 window.onload = function() {
@@ -33,11 +34,12 @@ window.onload = function() {
         for (let digimon of list) {
             digiThumb.innerHTML += `
                 <li>
-                    <a id="${digimon.name}" href="#search" class="btn listButton text-white text-shadow-black drop-shadow-black rounded-pill border-0 fs-1 my-1">${digimon.name} <img class="rounded-circle mb-1" style="width:30px" src="${digimon.img}"></a>
+                    <a id="${digimon.name}" href="#nav-logo" class="btn listButton text-white text-shadow-black drop-shadow-black rounded-pill border-0 fs-1 my-1">${digimon.name} <img class="rounded-circle mb-1" style="width:30px" src="${digimon.img}"></a>
                 </li>
             ` 
         }       
     })
+    .catch(error => console.log(error));
 }
 
 let digiList = document.querySelector("#digiThumb")
@@ -65,5 +67,6 @@ digiList.addEventListener("click", digimon => {
                 <h3 class="pt-1">Nivel: ${info[0].level}</h3>
             `
         })
+        .catch(error => console.log(error));
     }
 })
