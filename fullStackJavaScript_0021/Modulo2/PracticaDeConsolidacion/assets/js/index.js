@@ -13,3 +13,17 @@ digiSearch.addEventListener('click', (event) => {
         `
     })
 })
+
+window.onload = function() {
+    fetch('https://digimon-api.vercel.app/api/digimon')
+    .then(response => response.json())
+    .then(list => {
+        for (let digimon of list) {
+            digiThumb.innerHTML += `
+                <li>
+                    <button class="text-white text-shadow-black drop-shadow-black rounded-pill border-0 fs-1 my-1">${digimon.name} <img class="rounded-circle mb-1" style="width:30px" src="${digimon.img}"></button
+                </li>
+            ` 
+        }       
+    })
+}
