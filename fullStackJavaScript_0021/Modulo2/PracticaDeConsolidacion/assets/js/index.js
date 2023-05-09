@@ -32,7 +32,7 @@ window.onload = function() {
         for (let digimon of list) {
             digiThumb.innerHTML += `
                 <li>
-                    <a href="#digiCard" class="btn listButton text-white text-shadow-black drop-shadow-black rounded-pill border-0 fs-1 my-1">${digimon.name} <img class="rounded-circle mb-1" style="width:30px" src="${digimon.img}"></a>
+                    <a href="#search" class="btn listButton text-white text-shadow-black drop-shadow-black rounded-pill border-0 fs-1 my-1">${digimon.name} <img class="rounded-circle mb-1" style="width:30px" src="${digimon.img}"></a>
                 </li>
             ` 
         }       
