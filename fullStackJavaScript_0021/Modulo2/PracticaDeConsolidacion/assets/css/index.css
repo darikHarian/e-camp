@@ -101,7 +101,7 @@ nav {
 }
 
 #digiThumb li button {
-    width: 300px;
+    width: 350px;
     background: rgb(16,78,180);
     background: linear-gradient(270deg, rgba(16,78,180,.7) 26%, rgba(110,39,193,.7) 79%);
 }
