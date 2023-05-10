@@ -161,12 +161,14 @@ nav {
     }
 
     #nav-logo {
-        margin-top: -2px;
+        position: fixed;
+        margin-top: -55px;
+        left: 37.5vw;
         z-index: 3;
     }
 
     #nav-logo img {
-        width:22vw;
+        width: 21vw;
     }
 }
 
