@@ -28,7 +28,6 @@
                         <a id="historyLink1" class="btn rounded-pill border border-success text-warning text-shadow-black drop-shadow-black nav-link active" aria-current="page" href="https://digimon.net/about/" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">Historia</a>
                     </li>
                 </ul>
-
                 <ul class="col-6 navbar-nav d-none d-lg-flex justify-content-center">
                     <li class="nav-item">
                         <a id="apiLink1" class="btn rounded-pill border border-danger text-warning text-shadow-black drop-shadow-black nav-link active" aria-current="page" href="https://digimon-api.vercel.app/" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">API Digimon</a>
@@ -37,10 +36,19 @@
                 <div class="col-12 collapse navbar-collapse justify-content-lg-end justify-content-xl-center" id="navbarSupportedContent">
                     <ul class="navbar-nav text-center mt-4 d-flex d-lg-none">
                         <li class="nav-item">
-                            <a id="historyLink2" class="nav-link active" aria-current="page" href="https://digimon.net/about/" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">Historia</a>
+                            <a id="historyLink2" class="nav-link active" href="https://digimon.net/about/" target="_blank">
+                                <span data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
+                                    Historia
+                                </span>
+                            </a>
                         </li>
-                        <li class="nav-item">
-                            <a id="apiLink2" class="nav-link" href="https://digimon-api.vercel.app/" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">API Digimon</a>
+                        <li class="nav-item">                            
+                            <a id="apiLink2" class="nav-link" href="https://digimon-api.vercel.app/" target="_blank">
+                                <span data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
+                                    API Digimon
+                                </span>
+                            </a>
+                            </span>   
                         </li>
                     </ul>
                 </div>  
@@ -75,12 +83,10 @@
         </div>
         
         <!-- LIST -->
-        <section id="cards" class="container d-flex justify-content-center mt-5"> 
-            <div id="thumbnails">
+        <section id="cards" class="container-fluid d-flex justify-content-center mt-5"> 
+            <div id="thumbnails" class="container">
                 <div class="container bg-transparent border-0">
-                    <div id="digiThumb" class="">
-
-                    </div>
+                    <div id="digiThumb" class=""></div>
                 </div>
             </div>
         </section>

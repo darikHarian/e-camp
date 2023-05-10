@@ -103,7 +103,11 @@ nav {
 }
 
 #digiCard img {
-    width: 50vw
+    width: 210px;
+}
+
+#digiCard span {
+    font-size: 10px;
 }
 
 #digiThumb {
@@ -114,10 +118,19 @@ nav {
     width: 300px;
     background: rgb(16,78,180);
     background: linear-gradient(270deg, rgba(16,78,180,.7) 26%, rgba(110,39,193,.7) 79%);
+    letter-spacing: 3px;
 }
 
 .modal-content {
     background: url('./../img/modal-bg.png');
+}
+
+/* SM */
+@media screen and (min-width: 576px){
+    #digiThumb li {
+        width: 400px;
+        letter-spacing: 7px;
+    }
 }
 
 /* MD */

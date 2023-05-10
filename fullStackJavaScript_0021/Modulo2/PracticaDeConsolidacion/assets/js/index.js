@@ -14,13 +14,13 @@ digiSearch.addEventListener('click', (event) => {
         document.querySelector('#nombre').setAttribute("class", "d-block text-center text-white text-shadow-black drop-shadow-black mt-3 py-1 mx-auto")
         nombre.innerHTML = ''
         nombre.innerHTML = `
-            <h3 class="pt-1">Nombre: ${info[0].name}</h3>
+            Nombre: ${info[0].name}
         `
 
         document.querySelector('#nivel').setAttribute("class", "d-block text-center text-white text-shadow-black drop-shadow-black mt-2 py-1 mx-auto")
         nivel.innerHTML = ''
         nivel.innerHTML = `
-            <h3 class="pt-1">Nivel: ${info[0].level}</h3>
+            Nivel: ${info[0].level}
         `
     })
     .catch(error => console.log(error));
@@ -30,7 +30,6 @@ window.onload = function() {
     fetch('https://digimon-api.vercel.app/api/digimon')
     .then(response => response.json())
     .then(list => {
-        i = 1
         for (let digimon of list) {
             digiThumb.innerHTML += `
                 <li class="text-shadow-black drop-shadow-black text-center rounded-pill border-0 fs-1 my-1">
