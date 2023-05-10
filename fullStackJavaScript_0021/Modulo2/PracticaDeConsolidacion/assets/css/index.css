@@ -93,6 +93,7 @@ nav {
 
 #botonBuscar {
     width: 30vw;
+    margin: 0 10vw;
 }
 
 #digiCard {
@@ -131,12 +132,25 @@ nav {
         width: 400px;
         letter-spacing: 7px;
     }
+
+    #formBuscar {
+        width: 55vw;
+    }
 }
 
 /* MD */
 @media screen and (min-width: 768px){
     #nav-logo img {
         width:40vw
+    }
+
+    #formBuscar {
+        width: 50vw;
+    }
+
+    #botonBuscar {
+        width: 25vw;
+        margin: 0 30vw
     }
 }
 
@@ -146,9 +160,13 @@ nav {
         width: 40vw;
     }
 
+    #nav-logo {
+        margin-top: -2px;
+        z-index: 3;
+    }
+
     #nav-logo img {
         width:22vw;
-        z-index: 3;
     }
 }
 
