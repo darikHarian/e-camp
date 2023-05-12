@@ -1,2 +1,6 @@
 /* GLOBALS */
 
+iframe {
+    width: 100%;
+    height: 192px;
+}
