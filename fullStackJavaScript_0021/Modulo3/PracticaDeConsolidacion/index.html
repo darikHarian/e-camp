@@ -23,9 +23,9 @@
                 <div class="card bg-success-subtle border border-2 border-success rounded-3">
                     <div class="card-body">
                         <form action="" class="">
-                            <label for="" class="fs-4">Ingresa Tu Presupuesto</label>
-                            <input type="text" class="rounded w-100">
-                            <button class="btn btn-success rounded mt-2">Calcular</button>
+                            <label for="valorPresupuesto" class="fs-5">Ingresa Tu Presupuesto</label>
+                            <input id="valorPresupuesto" type="number" class="rounded w-100">
+                            <button id="botonPresupuesto" class="btn btn-success rounded mt-2" type="submit">Calcular</button>
                         </form>
                     </div>
                 </div>
@@ -34,10 +34,10 @@
                 <div class="card bg-danger-subtle border border-2 border-danger rounded-3">
                     <div class="card-body">
                         <form action="">
-                            <label for="" class="fs-4">Ingresa El Nombre Del Gasto</label>
+                            <label for="" class="fs-5">Ingresa El Nombre Del Gasto</label>
                             <input type="text" class="rounded w-100">
-                            <label for="">Ingresa La Cantidad Del Gasto</label>
-                            <input type="text" class="rounded w-100">
+                            <label for="" class="fs-5">Ingresa La Cantidad Del Gasto</label>
+                            <input type="number" class="rounded w-100">
                             <button class="btn btn-danger rounded mt-2">Añadir Gasto</button>
                         </form>
                     </div>
@@ -49,7 +49,7 @@
                 <div class="card rounded-top-3 rounded-bottom-0">
                     <div class="card-body row">
                         <h5 class="text-uppercase text-center">Resumen</h5>
-                        <div id="rt-presupuesto" class="col-4 text-uppercase text-center">
+                        <div id="rtPresupuesto" class="col-4 text-uppercase text-center">
                             <div class="">Presupuesto</div>
                             <div class="fs-4">$0</div>
                         </div>
