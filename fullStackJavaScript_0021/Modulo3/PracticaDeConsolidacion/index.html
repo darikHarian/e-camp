@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/css/index.css">
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    <script defer src="./assets/js/index.js"></script>
+
+    <title>APP DE PRESUPUESTO</title>
+</head>
+<body>
+    <main class="container row bg-primary rounded-4 mx-auto mt-3">
+        <h3 class="text-white text-uppercase mt-2">Presupuesto App</h3>
+        <section id="info-left" class="col-5 mb-3">
+            <div id="presupuesto">
+                <div class="card bg-success-subtle border border-2 border-success rounded-3">
+                    <div class="card-body">
+                        <form action="" class="">
+                            <label for="" class="fs-4">Ingresa Tu Presupuesto</label>
+                            <input type="text" class="rounded w-100">
+                            <button class="btn btn-success rounded mt-2">Calcular</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div id="gastos" class="mt-2">
+                <div class="card bg-danger-subtle border border-2 border-danger rounded-3">
+                    <div class="card-body">
+                        <form action="">
+                            <label for="" class="fs-4">Ingresa El Nombre Del Gasto</label>
+                            <input type="text" class="rounded w-100">
+                            <label for="">Ingresa La Cantidad Del Gasto</label>
+                            <input type="text" class="rounded w-100">
+                            <button class="btn btn-danger rounded mt-2">Añadir Gasto</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="info-right" class="col-7">
+            <div id="resumen-top">
+                <div class="card">
+                    <div class="card-body row">
+                        <h5 class="text-uppercase text-center">Resumen</h5>
+                        <div id="rt-presupuesto" class="col-4 text-uppercase text-center">
+                            <div class="">Presupuesto</div>
+                            <div class="fs-4">$0</div>
+                        </div>
+                        <div id="rt-gastos" class="col-4 text-uppercase text-center">
+                            <div class="">Gastos</div>
+                            <div class="fs-4">$0</div>
+                        </div>
+                        <div id="rt-saldo" class="col-4 text-uppercase text-center">
+                            <div class="">Saldo</div>
+                            <div class="fs-4">$0</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="resumen-bottom">
+                <div class="card">
+                    <div class="card-body row">
+                        
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
