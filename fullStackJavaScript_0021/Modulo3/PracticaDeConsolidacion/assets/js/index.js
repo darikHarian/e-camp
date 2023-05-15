@@ -72,7 +72,9 @@ function fcGastos(concepto, valor) {                                            
 
 function totalSaldo(){
     valorTotalSaldo = sumaPresupuesto - sumaGastos                                                  // Realizo las operaciones aritméticas dentro de la funcion totalSaldo
-    valorTotalSaldo <= 0? valorTotalSaldo = 0:                                                      // Evaluo si el saldo es menor o igual a cero, el saldo que debe mostrar será cero
+    if(valorTotalSaldo <= 0){
+        valorTotalSaldo = 0
+    }                                                                                               // Evaluo si el saldo es menor o igual a cero, el saldo que debe mostrar será cero
     stringValorTotalSaldo = valorTotalSaldo
     stringValorTotalSaldo = period(stringValorTotalSaldo)                                           // Convierto el valor a String y le agrego el punto cuando corresponda
     rtSaldo.innerHTML = `                                                                           
