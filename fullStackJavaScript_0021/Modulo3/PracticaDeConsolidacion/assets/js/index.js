@@ -95,16 +95,16 @@ function period(number){                                                        
     return number                                                                                   // Retorno el valor de la variable
 }
 
-function eliminar(indice){
-    eliminarElemento = arrGastos[indice]
-    valorElemento = arrGastos[indice].valor
-    sumaGastos -= valorElemento
-    stringSumaGastos = sumaGastos
-    stringSumaGastos = period(stringSumaGastos)
+function eliminar(indice){                                                                          // Creo la función eliminar para eliminar el elemento seleccionado de la lista dentro de la tabla
+    eliminarElemento = arrGastos[indice]                                                            // Selecciono el objeto a eliminar y lo almaceno en una variable
+    valorElemento = arrGastos[indice].valor                                                         // Guardo el valor del objeto seleccionado en una variable para realizar las operaciones aritméticas
+    sumaGastos -= valorElemento                                                                     // Resto a la suma de gastos el valor del elemento seleccionado para no incluirlo en los gastos
+    stringSumaGastos = sumaGastos                                                                   // Copio el valor en la variable stringSumaGastos
+    stringSumaGastos = period(stringSumaGastos)                                                     // Convierto el valor a String y le agrego el punto cuando corresponda
     rtGastos.innerHTML = `
         <div class="">Gastos</div>
         <div class="fs-4">$${stringSumaGastos}</div>
-    `
+    `                                                                                               // Dibujo en el resumen el valor actualizado de gastos
     let nuevoArray = arrGastos.filter(objeto => objeto !== eliminarElemento)                        // Ocupo el método filter para generar un nuevo array sin el objeto seleccionado
     arrGastos = nuevoArray                                                                          // Copio al array original los nuevos datos
     tData.innerHTML = ''                                                                            // Borro todos los elementos dentro de la etiqueta con el id tData para llenarlo con datos nuevos
