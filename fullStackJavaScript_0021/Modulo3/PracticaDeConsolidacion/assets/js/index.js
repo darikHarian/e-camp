@@ -10,24 +10,24 @@ let arrGastos = []                                                              
 ingresoDinero.addEventListener('click', (noReload) => {                                             // Creo un evento click para estar a la escucha del boton de presupuesto
     noReload.preventDefault()                                                                       // Agrego un preventDefault para evitar que se recargue la página al evento Submit del boton
     let stringSumaPresupuesto = ''                                                                  // Declaro la variable donde se agregará el valor final de la suma, convertido a String
-    let valorIngresoDinero = parseInt(document.querySelector('#valorPresupuesto').value)
-    let inputPresupuesto = document.querySelector('#valorPresupuesto')
-    if(isNaN(valorIngresoDinero) || valorIngresoDinero <= 0){
-    }else{
-        sumaPresupuesto += valorIngresoDinero                                                           
-        stringSumaPresupuesto = sumaPresupuesto
-        stringSumaPresupuesto = period(stringSumaPresupuesto)
+    let valorIngresoDinero = parseInt(document.querySelector('#valorPresupuesto').value)            // Creo la variable para guardar el valor del input de presupuesto parseado a Integer
+    let inputPresupuesto = document.querySelector('#valorPresupuesto')                              // Creo la variable con la etiqueta de id valorPresupuesto para posteriormente borrar lo ingresado en el input
+    if(isNaN(valorIngresoDinero) || valorIngresoDinero <= 0){                                       // Evaluo si valorIngresoDinero es un NaN o es menor o igual a cero, si se cumplen cualquiera de esas dos sentencias
+    }else{                                                                                          //  el código no hace nada y si no se sigue ejecutando el código normalmente
+        sumaPresupuesto += valorIngresoDinero                                                       // Hago la sumatoria de la variable sumaPresupuesto con el valor de la variable valorIngresoDinero
+        stringSumaPresupuesto = sumaPresupuesto                                                     // Copio el valor en otra variable para convertirlo a string mientras el original se mantiene como number para realizar operaciones
+        stringSumaPresupuesto = period(stringSumaPresupuesto)                                       // Parseo el valor de la variable a String para asignarle el punto cada 3 digitos con la función period()
         rtPresupuesto.innerHTML = `                                                                     
             <div class="">Presupuesto</div>
             <div class="fs-4">$${stringSumaPresupuesto}</div>
-        `
+        `                                                                                           // 
         totalSaldo() 
     }
     limpiarInput(inputPresupuesto)                                                                  // Llamo a la funcion limpiarInput para borrar lo escrito en el input después de hacer click en el boton Calcular
 })
 
 /* SECCION GASTOS */
-ingresogastos.addEventListener('click', (noReload) => {
+ingresogastos.addEventListener('click', (noReload) => {                                             // 
     noReload.preventDefault()
     let regex = /^\s*$/
     let inputTextoGastos = document.querySelector('#textoGasto').value
@@ -49,7 +49,7 @@ ingresogastos.addEventListener('click', (noReload) => {
         tData.innerHTML = ''                                                                        // Borro todos los elementos dentro de la etiqueta con el id tData para llenarlo con datos nuevos
         let indice = 0                                                                              // Declaro la variable indice para agregarla cuando llame a la funcion onclick
         arrGastos.forEach(function(gasto) {                                                         // Recorro el arreglo arrGastos con forEach
-            stringInputValorGastos = gasto.valor
+            stringInputValorGastos = gasto.valor                                                    // Copio el valor del 
             stringInputValorGastos = period(stringInputValorGastos)
             tData.innerHTML += `
                 <tr>
@@ -74,11 +74,11 @@ function fcGastos(concepto, valor) {                                            
 
 function totalSaldo(){
     let valorTotalSaldo = 0                                                                         // Declaro la variable donde guardaré el total de presupuesto - saldo por cada actualización de estos
-    let stringValorTotalSaldo = ''
+    let stringValorTotalSaldo = ''                                                                  // Declaro la variable donde se guardará el valor total convertido a String
     valorTotalSaldo = sumaPresupuesto - sumaGastos                                                  // Realizo las operaciones aritméticas dentro de la funcion totalSaldo
     if(valorTotalSaldo <= 0){
-        valorTotalSaldo = 0
-    }                                                                                               // Evaluo si el saldo es menor o igual a cero, el saldo que debe mostrar será cero
+        valorTotalSaldo = 0                                                                         // Mientras valorTotalSaldo sea menor o igual a cero, se dibujará en la página principal un cero
+    }                                                                   
     stringValorTotalSaldo = valorTotalSaldo
     stringValorTotalSaldo = period(stringValorTotalSaldo)                                           // Convierto el valor a String y le agrego el punto cuando corresponda
     rtSaldo.innerHTML = `                                                                           
