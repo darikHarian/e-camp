@@ -50,6 +50,7 @@ ingresogastos.addEventListener('click', (noReload) => {                         
         let indice = 0                                                                              // Declaro la variable indice para agregarla cuando llame a la funcion onclick
         arrGastos.forEach(function(gasto) {                                                         // Recorro el arreglo arrGastos con forEach
             stringInputValorGastos = gasto.valor                                                    // Copio el valor del objeto en la variable stringInputValorGastos
+            stringInputValorGastos = period(stringInputValorGastos)                                // Llamo a la funcion period para agregar los puntos cada 3 digitos a la cifra
             tData.innerHTML += `
                 <tr>
                     <td>${gasto.concepto}</td>
