@@ -20,22 +20,22 @@ ingresoDinero.addEventListener('click', (noReload) => {                         
         rtPresupuesto.innerHTML = `                                                                     
             <div class="">Presupuesto</div>
             <div class="fs-4">$${stringSumaPresupuesto}</div>
-        `                                                                                           // 
-        totalSaldo() 
+        `                                                                                           // Escribo el resultado del ingreso de dinero en la etiqueta con id rtPresupuesto
+        totalSaldo()                                                                                // Llamo a la función totalSaldo para calcular lo que queda de dinero
     }
     limpiarInput(inputPresupuesto)                                                                  // Llamo a la funcion limpiarInput para borrar lo escrito en el input después de hacer click en el boton Calcular
 })
 
 /* SECCION GASTOS */
-ingresogastos.addEventListener('click', (noReload) => {                                             // 
-    noReload.preventDefault()
-    let regex = /^\s*$/
-    let inputTextoGastos = document.querySelector('#textoGasto').value
+ingresogastos.addEventListener('click', (noReload) => {                                             // Creo un evento click para estar a la escucha del boton gastos
+    noReload.preventDefault()                                                                       // Agrego un preventDefault para evitar que se recargue la página al evento Submit del boton
+    let regex = /^\s*$/                                                                             // Declaro un regex para validar que no se ingresen espacios en blanco o no se ingrese nada
+    let inputTextoGastos = document.querySelector('#textoGasto').value                              // Creo la variable para guardar el valor del input del texto de gastos
     let inputValorGastos = parseInt(document.querySelector('#valorGasto').value)                    // Creo la variable para guardar el valor del input de gastos parseado a Integer
-    let textoGastos = document.querySelector('#textoGasto')
-    let valorGastos = document.querySelector('#valorGasto')
-    if(regex.test(inputTextoGastos)){
-    }else if(isNaN(inputValorGastos) || inputValorGastos <= 0){
+    let textoGastos = document.querySelector('#textoGasto')                                         // Creo la variable con la etiqueta de id textoGasto para posteriormente borrar lo ingresado en el input
+    let valorGastos = document.querySelector('#valorGasto')                                         // Creo la variable con la etiqueta de id valorGasto para posteriormente borrar lo ingresado en el input
+    if(regex.test(inputTextoGastos)){                                                               // Valido con un if y el regex si hay espacios en blanco o no se ha ingresado algún texto
+    }else if(isNaN(inputValorGastos) || inputValorGastos <= 0){                                     // Valido si el valor ingresado es un NaN o es menor o igual a cero, si no se cumplen las condiciones se sigue con la ejecución
     }else{
         let gasto = new fcGastos(inputTextoGastos, inputValorGastos)                                // Creo un nuevo objeto mediante la funcion constructora fcGastos
         arrGastos.push(gasto)                                                                       // Agrego los objetos creados al array arrGastos
@@ -49,18 +49,17 @@ ingresogastos.addEventListener('click', (noReload) => {                         
         tData.innerHTML = ''                                                                        // Borro todos los elementos dentro de la etiqueta con el id tData para llenarlo con datos nuevos
         let indice = 0                                                                              // Declaro la variable indice para agregarla cuando llame a la funcion onclick
         arrGastos.forEach(function(gasto) {                                                         // Recorro el arreglo arrGastos con forEach
-            stringInputValorGastos = gasto.valor                                                    // Copio el valor del 
-            stringInputValorGastos = period(stringInputValorGastos)
+            stringInputValorGastos = gasto.valor                                                    // Copio el valor del objeto en la variable stringInputValorGastos
             tData.innerHTML += `
                 <tr>
                     <td>${gasto.concepto}</td>
                     <td>$${stringInputValorGastos}</td>
                     <td><span class="bi bi-trash-fill text-danger" onclick="eliminar(${indice})"></span></td>
                 </tr>
-            `
+            `                                                                                       // Dibujo en la tabla los valores de cada objeto junto con el ícono para posteriormente eliminmar los datos
             indice ++                                                                               // Incremento por cada iteración el valor del indice en 1
         })
-        totalSaldo()                                                                                // Llamo a la funcion totalSaldo para realizar las operaciones aritméticas
+        totalSaldo()                                                                                // Llamo a la funcion totalSaldo para realizar las operaciones aritméticas y dibujar en el resumen el saldo
     }                                                                                
     limpiarInput(textoGastos)                                                                       // Llamo a la funcion limpiarInput para borrar lo escrito en la variable inputTextoGastos
     limpiarInput(valorGastos)                                                                       // Llamo a la funcion limpiarInput para borrar lo escrito en la variable inputValorGastos
@@ -111,16 +110,16 @@ function eliminar(indice){
     tData.innerHTML = ''                                                                            // Borro todos los elementos dentro de la etiqueta con el id tData para llenarlo con datos nuevos
     let indiceElemento = 0                                                                          // Declaro el iterador en cero para asignarlo como argumento de la funcion onclick en el nuevo arreglo
     arrGastos.forEach(function(gasto) {                                                             // Recorro el arreglo arrGastos con forEach
-        stringInputValorGastos = gasto.valor
-        stringInputValorGastos = period(stringInputValorGastos)
+        stringInputValorGastos = gasto.valor                                                        // Copio el valor del objeto en la variable stringInputValorGastos
+        stringInputValorGastos = period(stringInputValorGastos)                                     // Convierto el valor a String y le agrego el punto cuando corresponda
         tData.innerHTML += `
             <tr>
                 <td>${gasto.concepto}</td>
                 <td>$${stringInputValorGastos}</td>
                 <td><span class="bi bi-trash-fill text-danger" onclick="eliminar(${indiceElemento})"></span></td>
             </tr>
-        `
-        indiceElemento ++
+        `                                                                                           // Dibujo en la tabla los nuevos valores eliminando el objeto seleccionado de la lista
+        indiceElemento ++                                                                           // Incremento el valor del indice en 1 con cada iteracion
     })
-    totalSaldo()
+    totalSaldo()                                                                                    // Llamo a la funcion totalSaldo para realizar las operaciones aritméticas y dibujar en el resumen el saldo
 }
