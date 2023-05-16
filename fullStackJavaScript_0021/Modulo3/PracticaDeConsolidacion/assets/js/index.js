@@ -12,7 +12,7 @@ ingresoDinero.addEventListener('click', (noReload) => {                         
     let stringSumaPresupuesto = ''                                                                  // Declaro la variable donde se agregará el valor final de la suma, convertido a String
     let valorIngresoDinero = parseInt(document.querySelector('#valorPresupuesto').value)
     let inputPresupuesto = document.querySelector('#valorPresupuesto')
-    if(isNaN(valorIngresoDinero)){
+    if(isNaN(valorIngresoDinero) || valorIngresoDinero <= 0){
     }else{
         sumaPresupuesto += valorIngresoDinero                                                           
         stringSumaPresupuesto = sumaPresupuesto
@@ -35,7 +35,7 @@ ingresogastos.addEventListener('click', (noReload) => {
     let textoGastos = document.querySelector('#textoGasto')
     let valorGastos = document.querySelector('#valorGasto')
     if(regex.test(inputTextoGastos)){
-    }else if(isNaN(inputValorGastos)){
+    }else if(isNaN(inputValorGastos) || inputValorGastos <= 0){
     }else{
         let gasto = new fcGastos(inputTextoGastos, inputValorGastos)                                // Creo un nuevo objeto mediante la funcion constructora fcGastos
         arrGastos.push(gasto)                                                                       // Agrego los objetos creados al array arrGastos
