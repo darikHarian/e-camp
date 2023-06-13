@@ -1,42 +1,33 @@
 const groups = [1, 2, 3]
+const characters = [1, 2, 3, 4, 5]
+// genCharacters(group).next()
 
 for (const group of groups){
-    const mouseEvent = document.querySelector(`#cardGroup${group}`)
-    const mouseAction = document.querySelector(`#gr${group}Chr1`)
-    mouseEvent.addEventListener('mouseenter', function(){
-        mouseAction.style.visibility = 'visible'
+    const mouseEventGroup = document.querySelector(`#cardGroup${group}`)
+    const mouseActionGroup = document.querySelector(`#gr${group}Chr1`)
+    mouseEventGroup.addEventListener('mouseenter', () => {
+        mouseActionGroup.style.visibility = 'visible'
+        genCard(group, genCharacters())
     })
 }
 
-async function* generateCard(){
-
+function genCard(group, character){
+    console.log(`Funcion genCard - Grupo ${group} - Personaje ${character}`)
+    const currentGroup = document.querySelector(`#gr${group}`)
+    console.log(currentGroup)
 }
 
-let id = 1
-const URL = 'https://swapi.dev/api/people/'
-const getData = () => {
-    response = fetch(`${URL}${id}`)
-    info = response.json()
-    console.log(response)
-} 
+function genCharacters(){
+    for (const character of characters){
+        console.log(`Funcion genCharacters - Personaje ${character}`)
 
+    }
+}
 
-    
+async function genData(id){ 
+    const response = await fetch(`https://swapi.dev/api/people/${id}`)
+    const character = await response.json() 
+    return character
+}
 
-    // $("#cardGroup1").mouseenter(function(){
-    //     $("#gr1Chr1").css({
-    //         "visibility":"visible"
-    //     });
-    // });
-
-    // $("#cardGroup2").mouseenter(function(){
-    //     $("#gr2Chr1").css({
-    //         "visibility":"visible"
-    //     });
-    // });
-
-    // $("#cardGroup3").mouseenter(function(){
-    //     $("#gr3Chr1").css({
-    //         "visibility":"visible"
-    //     });
-    // });
+// console.log(genData(10))
