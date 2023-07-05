@@ -6,6 +6,7 @@ for (const group of groups){
     const mouseEventGroup = document.querySelector(`#cardGroup${group}`)
 
     let genCards
+    
     if (group == 1) {
         genCards = genCardsTop(group)
     } else if (group == 2) {
