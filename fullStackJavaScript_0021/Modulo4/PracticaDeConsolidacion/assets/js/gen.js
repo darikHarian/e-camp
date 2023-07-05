@@ -32,7 +32,6 @@ export function* genCardsTop(currentGroup) {
 
 export function* genCardsMiddle(currentGroup) {
     for (let character = 6; character <= 10; character++) {
-        const card = character
         yield genCard(currentGroup, character)
     }
 }
