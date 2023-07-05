@@ -1,1 +1,1 @@
-<a href="https://darikharian.github.io/e-camp/fullStackJavaScript_0021/Modulo4/PracticaDeConsolidacion/"><button>Preview del proyecto</button></a>
+<a href="https://darikharian.github.io/e-camp/fullStackJavaScript_0021/Modulo4/PracticaDeConsolidacion/" target="_blank"><button>Preview del proyecto</button></a>
