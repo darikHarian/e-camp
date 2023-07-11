@@ -1,0 +1,129 @@
+"schema_nm","table_nm","obj_typ","ord","is_key","column_nm","data_typ","nullable","column_descr"
+"public","actor","TBL",1,"PK","actor_id","integer(32)","NOT NULL",NULL
+"public","actor","TBL",2," ","first_name","character varying(45)","NOT NULL",NULL
+"public","actor","TBL",3," ","last_name","character varying(45)","NOT NULL",NULL
+"public","actor","TBL",4," ","last_update","timestamp without time zone(6)","NOT NULL",NULL
+"public","actor_info","VW",1," ","actor_id","integer(32)",NULL,NULL
+"public","actor_info","VW",2," ","first_name","character varying(45)",NULL,NULL
+"public","actor_info","VW",3," ","last_name","character varying(45)",NULL,NULL
+"public","actor_info","VW",4," ","film_info","text",NULL,NULL
+"public","address","TBL",1,"PK","address_id","integer(32)","NOT NULL",NULL
+"public","address","TBL",2," ","address","character varying(50)","NOT NULL",NULL
+"public","address","TBL",3," ","address2","character varying(50)",NULL,NULL
+"public","address","TBL",4," ","district","character varying(20)","NOT NULL",NULL
+"public","address","TBL",5,"FK","city_id","smallint(16)","NOT NULL",NULL
+"public","address","TBL",6," ","postal_code","character varying(10)",NULL,NULL
+"public","address","TBL",7," ","phone","character varying(20)","NOT NULL",NULL
+"public","address","TBL",8," ","last_update","timestamp without time zone(6)","NOT NULL",NULL
+"public","category","TBL",1,"PK","category_id","integer(32)","NOT NULL",NULL
+"public","category","TBL",2," ","name","character varying(25)","NOT NULL",NULL
+"public","category","TBL",3," ","last_update","timestamp without time zone(6)","NOT NULL",NULL
+"public","city","TBL",1,"PK","city_id","integer(32)","NOT NULL",NULL
+"public","city","TBL",2," ","city","character varying(50)","NOT NULL",NULL
+"public","city","TBL",3,"FK","country_id","smallint(16)","NOT NULL",NULL
+"public","city","TBL",4," ","last_update","timestamp without time zone(6)","NOT NULL",NULL
+"public","country","TBL",1,"PK","country_id","integer(32)","NOT NULL",NULL
+"public","country","TBL",2," ","country","character varying(50)","NOT NULL",NULL
+"public","country","TBL",3," ","last_update","timestamp without time zone(6)","NOT NULL",NULL
+"public","customer","TBL",1,"PK","customer_id","integer(32)","NOT NULL",NULL
+"public","customer","TBL",2," ","store_id","smallint(16)","NOT NULL",NULL
+"public","customer","TBL",3," ","first_name","character varying(45)","NOT NULL",NULL
+"public","customer","TBL",4," ","last_name","character varying(45)","NOT NULL",NULL
+"public","customer","TBL",5," ","email","character varying(50)",NULL,NULL
+"public","customer","TBL",6,"FK","address_id","smallint(16)","NOT NULL",NULL
+"public","customer","TBL",7," ","activebool","boolean","NOT NULL",NULL
+"public","customer","TBL",8," ","create_date","date(3)","NOT NULL",NULL
+"public","customer","TBL",9," ","last_update","timestamp without time zone(6)",NULL,NULL
+"public","customer","TBL",10," ","active","integer(32)",NULL,NULL
+"public","customer_list","VW",1," ","id","integer(32)",NULL,NULL
+"public","customer_list","VW",2," ","name","text",NULL,NULL
+"public","customer_list","VW",3," ","address","character varying(50)",NULL,NULL
+"public","customer_list","VW",4," ","zip code","character varying(10)",NULL,NULL
+"public","customer_list","VW",5," ","phone","character varying(20)",NULL,NULL
+"public","customer_list","VW",6," ","city","character varying(50)",NULL,NULL
+"public","customer_list","VW",7," ","country","character varying(50)",NULL,NULL
+"public","customer_list","VW",8," ","notes","text",NULL,NULL
+"public","customer_list","VW",9," ","sid","smallint(16)",NULL,NULL
+"public","film","TBL",1,"PK","film_id","integer(32)","NOT NULL",NULL
+"public","film","TBL",2," ","title","character varying(255)","NOT NULL",NULL
+"public","film","TBL",3," ","description","text",NULL,NULL
+"public","film","TBL",4," ","release_year","integer(32)",NULL,NULL
+"public","film","TBL",5,"FK","language_id","smallint(16)","NOT NULL",NULL
+"public","film","TBL",6," ","rental_duration","smallint(16)","NOT NULL",NULL
+"public","film","TBL",7," ","rental_rate","numeric(4,2)","NOT NULL",NULL
+"public","film","TBL",8," ","length","smallint(16)",NULL,NULL
+"public","film","TBL",9," ","replacement_cost","numeric(5,2)","NOT NULL",NULL
+"public","film","TBL",10," ","rating","USER-DEFINED",NULL,NULL
+"public","film","TBL",11," ","last_update","timestamp without time zone(6)","NOT NULL",NULL
+"public","film","TBL",12," ","special_features","ARRAY",NULL,NULL
+"public","film","TBL",13," ","fulltext","tsvector","NOT NULL",NULL
+"public","film_actor","TBL",1,"FK,PK","actor_id","smallint(16)","NOT NULL",NULL
+"public","film_actor","TBL",2,"FK,PK","film_id","smallint(16)","NOT NULL",NULL
+"public","film_actor","TBL",3," ","last_update","timestamp without time zone(6)","NOT NULL",NULL
+"public","film_category","TBL",1,"FK,PK","film_id","smallint(16)","NOT NULL",NULL
+"public","film_category","TBL",2,"FK,PK","category_id","smallint(16)","NOT NULL",NULL
+"public","film_category","TBL",3," ","last_update","timestamp without time zone(6)","NOT NULL",NULL
+"public","film_list","VW",1," ","fid","integer(32)",NULL,NULL
+"public","film_list","VW",2," ","title","character varying(255)",NULL,NULL
+"public","film_list","VW",3," ","description","text",NULL,NULL
+"public","film_list","VW",4," ","category","character varying(25)",NULL,NULL
+"public","film_list","VW",5," ","price","numeric(4,2)",NULL,NULL
+"public","film_list","VW",6," ","length","smallint(16)",NULL,NULL
+"public","film_list","VW",7," ","rating","USER-DEFINED",NULL,NULL
+"public","film_list","VW",8," ","actors","text",NULL,NULL
+"public","inventory","TBL",1,"PK","inventory_id","integer(32)","NOT NULL",NULL
+"public","inventory","TBL",2,"FK","film_id","smallint(16)","NOT NULL",NULL
+"public","inventory","TBL",3," ","store_id","smallint(16)","NOT NULL",NULL
+"public","inventory","TBL",4," ","last_update","timestamp without time zone(6)","NOT NULL",NULL
+"public","language","TBL",1,"PK","language_id","integer(32)","NOT NULL",NULL
+"public","language","TBL",2," ","name","character(20)","NOT NULL",NULL
+"public","language","TBL",3," ","last_update","timestamp without time zone(6)","NOT NULL",NULL
+"public","nicer_but_slower_film_list","VW",1," ","fid","integer(32)",NULL,NULL
+"public","nicer_but_slower_film_list","VW",2," ","title","character varying(255)",NULL,NULL
+"public","nicer_but_slower_film_list","VW",3," ","description","text",NULL,NULL
+"public","nicer_but_slower_film_list","VW",4," ","category","character varying(25)",NULL,NULL
+"public","nicer_but_slower_film_list","VW",5," ","price","numeric(4,2)",NULL,NULL
+"public","nicer_but_slower_film_list","VW",6," ","length","smallint(16)",NULL,NULL
+"public","nicer_but_slower_film_list","VW",7," ","rating","USER-DEFINED",NULL,NULL
+"public","nicer_but_slower_film_list","VW",8," ","actors","text",NULL,NULL
+"public","payment","TBL",1,"PK","payment_id","integer(32)","NOT NULL",NULL
+"public","payment","TBL",2,"FK","customer_id","smallint(16)","NOT NULL",NULL
+"public","payment","TBL",3,"FK","staff_id","smallint(16)","NOT NULL",NULL
+"public","payment","TBL",4,"FK","rental_id","integer(32)","NOT NULL",NULL
+"public","payment","TBL",5," ","amount","numeric(5,2)","NOT NULL",NULL
+"public","payment","TBL",6," ","payment_date","timestamp without time zone(6)","NOT NULL",NULL
+"public","rental","TBL",1,"PK","rental_id","integer(32)","NOT NULL",NULL
+"public","rental","TBL",2," ","rental_date","timestamp without time zone(6)","NOT NULL",NULL
+"public","rental","TBL",3,"FK","inventory_id","integer(32)","NOT NULL",NULL
+"public","rental","TBL",4,"FK","customer_id","smallint(16)","NOT NULL",NULL
+"public","rental","TBL",5," ","return_date","timestamp without time zone(6)",NULL,NULL
+"public","rental","TBL",6,"FK","staff_id","smallint(16)","NOT NULL",NULL
+"public","rental","TBL",7," ","last_update","timestamp without time zone(6)","NOT NULL",NULL
+"public","sales_by_film_category","VW",1," ","category","character varying(25)",NULL,NULL
+"public","sales_by_film_category","VW",2," ","total_sales","numeric",NULL,NULL
+"public","sales_by_store","VW",1," ","store","text",NULL,NULL
+"public","sales_by_store","VW",2," ","manager","text",NULL,NULL
+"public","sales_by_store","VW",3," ","total_sales","numeric",NULL,NULL
+"public","staff","TBL",1,"PK","staff_id","integer(32)","NOT NULL",NULL
+"public","staff","TBL",2," ","first_name","character varying(45)","NOT NULL",NULL
+"public","staff","TBL",3," ","last_name","character varying(45)","NOT NULL",NULL
+"public","staff","TBL",4,"FK","address_id","smallint(16)","NOT NULL",NULL
+"public","staff","TBL",5," ","email","character varying(50)",NULL,NULL
+"public","staff","TBL",6," ","store_id","smallint(16)","NOT NULL",NULL
+"public","staff","TBL",7," ","active","boolean","NOT NULL",NULL
+"public","staff","TBL",8," ","username","character varying(16)","NOT NULL",NULL
+"public","staff","TBL",9," ","password","character varying(40)",NULL,NULL
+"public","staff","TBL",10," ","last_update","timestamp without time zone(6)","NOT NULL",NULL
+"public","staff","TBL",11," ","picture","bytea",NULL,NULL
+"public","staff_list","VW",1," ","id","integer(32)",NULL,NULL
+"public","staff_list","VW",2," ","name","text",NULL,NULL
+"public","staff_list","VW",3," ","address","character varying(50)",NULL,NULL
+"public","staff_list","VW",4," ","zip code","character varying(10)",NULL,NULL
+"public","staff_list","VW",5," ","phone","character varying(20)",NULL,NULL
+"public","staff_list","VW",6," ","city","character varying(50)",NULL,NULL
+"public","staff_list","VW",7," ","country","character varying(50)",NULL,NULL
+"public","staff_list","VW",8," ","sid","smallint(16)",NULL,NULL
+"public","store","TBL",1,"PK","store_id","integer(32)","NOT NULL",NULL
+"public","store","TBL",2,"FK","manager_staff_id","smallint(16)","NOT NULL",NULL
+"public","store","TBL",3,"FK","address_id","smallint(16)","NOT NULL",NULL
+"public","store","TBL",4," ","last_update","timestamp without time zone(6)","NOT NULL",NULL
