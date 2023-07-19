@@ -79,7 +79,6 @@ describe('CRUD de Películas de Anime', () => {
 
 describe('', () => {
     it("DELETE /delete/:key debe eliminar el elemento especificado en el Params", (done) => {
-        //const deleted = res.body
         chai.request(app)
         .delete('/delete/3')
         .end((err, res) => {
