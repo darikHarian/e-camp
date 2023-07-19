@@ -1,7 +1,7 @@
 const express = require("express")
 const app = express()
 const fs = require("fs")
-const PORT = 3000
+const PORT = 3002
 
 // MIDLEWARES
 app.use(express.json())
@@ -28,29 +28,27 @@ app.post("/send", (req, res) => {
     const animeID = Object.keys(animeNames).length+1
     animeNames[animeID] = newAnime
     fs.writeFileSync("./anime.json", JSON.stringify(animeNames))
-    res.send('Animé agregado!')
+    res.json(newAnime)
 })
 
 app.put("/update/:key", (req, res) => {
     let key = req.params.key
-    let props = req.body
+    let updateAnime = req.body
     let data = fs.readFileSync("./anime.json", 'utf-8')
     let animeNames = JSON.parse(data)
-    animeNames[key].nombre = props.nombre
-    animeNames[key].genero = props.genero
-    animeNames[key].año = props.año
-    animeNames[key].autor = props.autor
+    animeNames[key] = updateAnime
     fs.writeFileSync("./anime.json", JSON.stringify(animeNames))
-    res.send('Animé actualizado!')
+    res.json(animeNames[key])
 })
 
 app.delete("/delete/:key", (req, res) => {
     let key = req.params.key
     let data = fs.readFileSync("./anime.json", 'utf-8')
     let animeNames = JSON.parse(data)
+    const deleted = animeNames[key]
     delete animeNames[key]
     fs.writeFileSync("./anime.json", JSON.stringify(animeNames))
-    res.send('Registro eliminado con éxito!')
+    res.json(animeNames)
 })
 
 // SERVER
