@@ -1,6 +1,6 @@
 import { db_connect } from "./models/index.js";
 import express from 'express'
-import userRoutes from './controllers/user.controller.js'
+import { usersTableInit, userRoutes } from './controllers/user.controller.js'
 import bootcampRoutes from './controllers/bootcamp.controller.js'
 
 const app = express();
@@ -12,6 +12,8 @@ db_connect()
 app.use(userRoutes)
 app.use(bootcampRoutes)
 
+usersTableInit()
+
 app.listen(PORT, () => {
-    console.log(`> Server is running on port ${PORT}`)
+    console.log(`> server.js: Server is running on port ${PORT}`)
 })

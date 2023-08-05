@@ -4,7 +4,7 @@ import Sequelize from 'sequelize'
 dotenv.config(dotenv)
 
 // CREACION BASE DE DATOS
-const sequelize = (
+export const db = (
     new Sequelize(
         'db_bootcamp',
         process.env.DB_USER,
@@ -18,9 +18,9 @@ const sequelize = (
 // CONEXIÓN BASE DE DATOS
 export const db_connect = async () => {
     try {
-        await sequelize.authenticate()
-        .then(() => console.log('> Connection has been established successfully'))
-        .catch(err=>console.error("> Unable to connect to the database:", err));   
+        await db.authenticate()
+        .then(() => console.log('> models/index.js: Connection has been established successfully'))
+        .catch(err=>console.error("> models/index.js Unable to connect to the database:", err));   
     } catch (error) {
         throw error;
     }  
