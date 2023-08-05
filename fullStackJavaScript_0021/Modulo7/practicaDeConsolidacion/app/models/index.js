@@ -1,11 +1,7 @@
 import dotenv from 'dotenv'
 import Sequelize from 'sequelize'
-import express from 'express'
 
 dotenv.config(dotenv)
-
-const app = express();
-const PORT = 3100
 
 // CREACION BASE DE DATOS
 const sequelize = (
@@ -27,9 +23,5 @@ export const db_connect = async () => {
         .catch(err=>console.error("> Unable to connect to the database:", err));   
     } catch (error) {
         throw error;
-    } 
-    
-    app.listen(PORT, () => {
-        console.log(`> Server is running on port ${PORT}`)
-    })
+    }  
 }
