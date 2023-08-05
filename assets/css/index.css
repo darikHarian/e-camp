@@ -1,0 +1,18 @@
+body {
+    background: url('../img/wallpaper.jpeg');
+    background-size: cover;
+    background-position: fixed center;
+}
+
+
+.accordion > * { 
+    background: transparent !important; 
+}
+
+.bg-black-alpha50 {
+    background: rgba(0,0,0,.5) !important
+}
+
+.bg-black-alpha75 {
+    background: rgba(0,0,0,.75) !important
+}
