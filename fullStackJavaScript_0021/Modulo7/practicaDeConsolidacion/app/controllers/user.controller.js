@@ -1,41 +1,24 @@
-import { Router } from 'express'
-import { QueryTypes } from 'sequelize'
-import { db } from '../models/index.js'
+import express from 'express'
 import { User } from '../models/user.model.js'
-import { tableExists } from './validators.js'
+import { usersTableInit } from '../config/validators.js'
 
-const router = Router()
-let tableName = ''
+const tableName = 'Usuarios'
 
-export const usersTableInit = async () => {
+export const users = express.Router()
+
+// INGRESA REGISTROS A LA TABLA Users
+users.post('/createUser', async (req, res) => {
+    usersTableInit()
     try {
-        // CREA LA TABLA USERS SI NO EXISTE
-        tableName = 'Users'
-        const exists = await tableExists(tableName)
-        if (exists) {
-            console.log(`> controllers/user.controller: La tabla ${tableName} ya existe`)
-        } else {
-            const createTableUsers = await db.query(
-                `CREATE TABLE IF NOT EXISTS "Users"(
-                    id SERIAL PRIMARY KEY NOT NULL,
-                    firstName VARCHAR(255) NOT NULL,
-                    lastName VARCHAR(255) NOT NULL,
-                    email VARCHAR (255) UNIQUE NOT NULL,
-                    createdAt TIMESTAMP WITH TIME ZONE NOT NULL,
-                    updatedAt TIMESTAMP WITH TIME ZONE NOT NULL)`, 
-                {
-                    type: QueryTypes.SELECT
-                }
-            )
-        }
+        const { firstName, lastName, email } = req.body
+        const newUser = await User.create({ firstName, lastName, email })
+        res.json({'Se ha creado el usuario': newUser})
+        console.log('> controllers/user.controller.js: Usuario creado')
     } catch(error) {
-        console.log("Error", error);
+        console.log(`> controllers/user.controller.js: Error al ingresar el nuevo registro a la tabla ${tableName}`, error)
     }
-}
+})
 
-// RUTAS
-export const userRoutes = async () => {
-    router.get('/users'), async (req, res) => {
-
-    }
-}
+users.get('/usuarios', async (req, res) => {
+    res.json({Todo: 'Ok'})
+})

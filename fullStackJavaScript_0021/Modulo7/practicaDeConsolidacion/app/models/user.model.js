@@ -1,5 +1,5 @@
-import { DataTypes as dt } from 'sequelize'
-import { db } from './index.js'
+import { Sequelize, DataTypes as dt } from 'sequelize'
+import { db } from '../config/db.config.js'
 
 export const User = db.define('User', {
     id: {
@@ -34,21 +34,16 @@ export const User = db.define('User', {
         allowNull: false,
         validate: {
             isEmail: true,
-            EmailValidator(value) {
-                if (!value.endsWith('@example.com')) {
-                    throw Error('El correo debería tener el formato "correo@example.com"')
-                }
-            }
         }
     },
     createdAt: {
         type: dt.DATE,
-        defaultValue: () => new DATE(),
-        allowNull: false
+        defaultValue: Sequelize.NOW,
+        allowNull: true
     },
     updatedAt: {
         type: dt.DATE,
-        defaultValue: () => new DATE(),
-        allowNull: false
+        defaultValue: Sequelize.NOW,
+        allowNull: true
     }
 })

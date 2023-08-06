@@ -1,19 +1,17 @@
-import { db_connect } from "./models/index.js";
 import express from 'express'
-import { usersTableInit, userRoutes } from './controllers/user.controller.js'
-import bootcampRoutes from './controllers/bootcamp.controller.js'
+import { users } from './controllers/user.controller.js'
 
 const app = express();
 const PORT = 3100
 
-db_connect()
+// MIDLEWARES
+app.use( express.json() )
+app.use( express.urlencoded({ extended: true }) )
 
 // RUTAS
-app.use(userRoutes)
-app.use(bootcampRoutes)
+app.use('/users', users)
 
-usersTableInit()
-
+// SERVER
 app.listen(PORT, () => {
     console.log(`> server.js: Server is running on port ${PORT}`)
 })
