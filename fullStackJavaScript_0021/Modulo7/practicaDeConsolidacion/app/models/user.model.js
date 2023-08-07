@@ -32,6 +32,10 @@ export const User = db.define('User', {
     email: {
         type: dt.STRING(255),
         allowNull: false,
+        unique: {
+            args: true,
+            msg: "El email ya está registrado"
+        },
         validate: {
             isEmail: true,
         }
@@ -39,7 +43,14 @@ export const User = db.define('User', {
     createdAt: {
         type: dt.DATE,
         defaultValue: Sequelize.NOW,
-        allowNull: true
+        allowNull: true,
+        validate: {
+            noUpdate(value) {
+                if (this.changed('createdAt')) {
+                    throw new Error('No se puede actualizar el campo createdAt');
+                }
+            }
+        }
     },
     updatedAt: {
         type: dt.DATE,

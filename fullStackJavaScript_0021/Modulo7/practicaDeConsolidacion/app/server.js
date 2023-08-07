@@ -1,5 +1,6 @@
 import express from 'express'
 import { users } from './controllers/user.controller.js'
+import { bootcamps } from './controllers/bootcamp.controller.js'
 
 const app = express();
 const PORT = 3100
@@ -10,6 +11,7 @@ app.use( express.urlencoded({ extended: true }) )
 
 // RUTAS
 app.use('/users', users)
+app.use('/bootcamps', bootcamps)
 
 // SERVER
 app.listen(PORT, () => {
