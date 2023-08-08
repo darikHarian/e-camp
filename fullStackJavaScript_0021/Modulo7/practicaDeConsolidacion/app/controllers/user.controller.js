@@ -34,11 +34,35 @@ users.get('/findAll', async (req, res) => {
 })
 
 // Actualizar usuario por Id
-users.put('/updateUserById', async (req, res) => {
-    res.json({Todo: 'Ok'})
+users.put('/updateUserById/:id', async (req, res) => {
+    try {
+        const id = req.params.id
+        const firstName = req.body.firstName
+        const lastName  = req.body.lastName
+        const email = req.body.email
+
+        await User.update(
+            {firstName, lastName, email},
+            {where: {id}}
+        )
+
+        res.json({'Mensaje': 'Usuario actualizado correctamente'})
+        console.log('> controllers/user.controller.js: Usuario actualizado')
+    } catch(error) {
+        res.json({'Mensaje': 'El usuario no pudo ser actualizado'})
+        console.log('> controllers/user.controller.js: El usuario no pudo ser actualizado', error)
+    }
 })
 
 // Eliminar un usuario por Id
-users.delete('deleteUserById', async (req, res) => {
-    res.json({Todo: 'Ok'})
+users.delete('/deleteUserById/:id', async (req, res) => {
+    try {
+        const id = req.params.id
+        await User.destroy({where: {id}})
+        res.json({'Mensaje': 'Usuario eliminado correctamente'})
+        console.log('> controllers/user.controller.js: Usuario eliminado')
+    } catch(error) {
+        res.json({'Mensaje': 'No se ha podido eliminar el usuario'})
+        console.log('> controllers/user.controller.js: No se ha podido eliminar el usuario', error)
+    }
 })

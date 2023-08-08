@@ -29,8 +29,20 @@ bootcamps.post('/addUser', async (req, res) => {
 })
 
 // Obtener los Bootcamp por id
-bootcamps.get('/findById', async (req, res) => {
-    res.json({Todo: 'Ok'})
+bootcamps.get('/findById/:id', async (req, res) => {
+    try {
+        const id = req.params.id
+        const bootcamp = await Bootcamp.findByPk(id)
+        if (!bootcamp) {
+            res.json({'Mensaje': 'El bootcamp no existe'})
+        } else {
+            res.json({'Bootcamp': bootcamp})
+            console.log('> controllers/bootcamp.controller.js: Bootcamp encontrado')
+        }
+    } catch(error) {
+        res.json({'Mensaje': 'El bootcamp no pudo ser encontrado'})
+        console.log('El bootcamp no pudo ser encontrado', error)
+    }
 })
 
 // Obtener todos los Usuarios incluyendo los Bootcamp
