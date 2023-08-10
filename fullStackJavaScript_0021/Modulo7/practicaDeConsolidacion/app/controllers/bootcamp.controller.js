@@ -1,11 +1,9 @@
 import express from 'express'
-import {User, Bootcamp} from "../models/index.js"
+import { User, Bootcamp } from "../models/index.js"
 import { bootcampsTableInit } from '../config/validators.js'
 
 const tableName = 'Bootcamps'
 export const bootcamps = express.Router()
-
-console.log(User, '\n\n\n', Bootcamp)
 
 bootcamps.use('/createBootcamp', (req, res, next) => {
     bootcampsTableInit(tableName)
@@ -30,7 +28,6 @@ bootcamps.post('/addUser', async (req, res) => {
     try {
         const { bootcampId, userId } = req.body
         const bootcamp = await Bootcamp.findByPk(bootcampId)
-        console.log(bootcamp)
         if (!bootcamp) return res.status(404).json({Mensaje: 'Bootcamp no encontrado'})
 
         const user = await User.findByPk(userId)
@@ -55,17 +52,25 @@ bootcamps.get('/findById/:id', async (req, res) => {
         const bootcamp = await Bootcamp.findByPk(id)
         if (!bootcamp) {
             res.json({'Mensaje': 'El bootcamp no existe'})
+            console.log('> controllers/bootcamp.controller.js: El Bootcamp no existe')
         } else {
             res.json({'Bootcamp': bootcamp})
             console.log('> controllers/bootcamp.controller.js: Bootcamp encontrado')
         }
     } catch(error) {
         res.json({'Mensaje': 'El bootcamp no pudo ser encontrado'})
-        console.log('El bootcamp no pudo ser encontrado', error)
+        console.log('> controllers/bootcamp.controller.js: El bootcamp no pudo ser encontrado', error)
     }
 })
 
-// Obtener todos los Usuarios incluyendo los Bootcamp
+// Obtener todos los Bootcamps incluyendo los Usuarios
 bootcamps.get('/findAll', async (req, res) => {
-    res.json({Todo: 'Ok'})
+    try {
+        const bootcamps = await Bootcamp.findAll({include: { model: User, as: 'users' }})
+        res.json(bootcamps)
+        console.log('> controllers/bootcamp.controller.js: Bootcamps y sus Usuarios encontrados')
+    } catch(error) {
+        res.json({Mensaje: 'No se pudo obtener la lista de Bootcamps'})
+        console.log('> controllers/bootcamp.controller.js: No se pudo obtener la lista de Bootcamps', error)
+    }
 })

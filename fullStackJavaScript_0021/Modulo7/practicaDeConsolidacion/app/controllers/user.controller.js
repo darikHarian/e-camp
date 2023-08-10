@@ -1,5 +1,5 @@
 import express from 'express'
-import { User } from '../models/user.model.js'
+import { User, Bootcamp } from "../models/index.js"
 import { usersTableInit } from '../config/validators.js'
 
 const tableName = 'Users'
@@ -24,13 +24,33 @@ users.post('/createUser', async (req, res) => {
 })
 
 // Obtener los Bootcamp de un usuario
-users.get('/findUserById', async (req, res) => {
-    res.json({Todo: 'Ok'})
+users.get('/findUserById/:id', async (req, res) => {
+    try {
+        const id = req.params.id
+        const user = await User.findByPk(id, {include: { model: Bootcamp, as: 'bootcamps' }})
+        if (!user) {
+            res.json({'Mensaje': 'El Usuario no existe'})
+            console.log('> controllers/user.controller.js: El Usuario no existe')
+        } else {
+            res.json({'Usuario': user})
+            console.log('> controllers/user.controller.js: Usuario encontrado')
+        }
+    } catch(error) {
+        res.json({'Mensaje': 'El Usuario no pudo ser encontrado'})
+        console.log('> controllers/user.controller.js: El Usuario no pudo ser encontrado', error)
+    }
 })
 
 // Obtener todos los Usuarios incluyendo, los Bootcamp
 users.get('/findAll', async (req, res) => {
-    res.json({Todo: 'Ok'})
+    try {
+        const users = await User.findAll({include: { model: Bootcamp, as: 'bootcamps' }})
+        res.json(users)
+        console.log('> controllers/user.controller.js: Usuarios y sus Bootcamps encontrados')
+    } catch(error) {
+        res.json({Mensaje: 'No se pudo obtener la lista de usuarios'})
+        console.log('> controllers/user.controller.js: No se pudo obtener la lista de usuarios', error)
+    }
 })
 
 // Actualizar usuario por Id
