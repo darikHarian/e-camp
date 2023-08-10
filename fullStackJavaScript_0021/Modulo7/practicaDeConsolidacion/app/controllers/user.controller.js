@@ -1,14 +1,8 @@
 import express from 'express'
 import { User, Bootcamp } from "../models/index.js"
-import { usersTableInit } from '../config/validators.js'
 
 const tableName = 'Users'
 export const users = express.Router()
-
-users.use('/createUser', (req, res, next) => {
-    usersTableInit(tableName)
-    next()
-})
 
 // INGRESA REGISTROS A LA TABLA Users
 users.post('/createUser', async (req, res) => { 
