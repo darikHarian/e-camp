@@ -1,5 +1,4 @@
 import { db } from "../config/db.config.js";
-// import { Sequelize, DataTypes as dt } from 'sequelize'
 import { User } from './user.model.js'
 import { Bootcamp } from './bootcamp.model.js'
 
