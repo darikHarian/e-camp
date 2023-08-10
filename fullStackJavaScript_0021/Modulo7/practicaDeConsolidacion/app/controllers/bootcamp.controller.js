@@ -49,7 +49,7 @@ bootcamps.post('/addUser', async (req, res) => {
 bootcamps.get('/findById/:id', async (req, res) => {
     try {
         const id = req.params.id
-        const bootcamp = await Bootcamp.findByPk(id)
+        const bootcamp = await Bootcamp.findByPk(id, {include: { model: User, as: 'users' }})
         if (!bootcamp) {
             res.json({'Mensaje': 'El bootcamp no existe'})
             console.log('> controllers/bootcamp.controller.js: El Bootcamp no existe')
