@@ -1,7 +1,7 @@
-import { Sequelize, DataTypes as dt } from 'sequelize'
 import { db } from '../config/db.config.js'
+import { Sequelize, DataTypes as dt } from 'sequelize'
 
-export const Bootcamp = db.define('Bootcamp',{
+export const Bootcamp = db.define('Bootcamp', {
     id: {
         type: dt.INTEGER,
         primaryKey: true,
@@ -43,6 +43,10 @@ export const Bootcamp = db.define('Bootcamp',{
     updatedAt: {
         type: dt.DATE,
         defaultValue: Sequelize.NOW,
-        allowNull: true
+        allowNull: false
     }
 })
+
+Bootcamp.ssociate = (models) => {
+    Bootcamp.belongsToMany(models.User, {through: 'UserBootcamp'})
+}

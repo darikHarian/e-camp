@@ -1,9 +1,11 @@
 import express from 'express'
-import { Bootcamp } from "../models/bootcamp.model.js"
+import {User, Bootcamp} from "../models/index.js"
 import { bootcampsTableInit } from '../config/validators.js'
 
 const tableName = 'Bootcamps'
 export const bootcamps = express.Router()
+
+console.log(User, '\n\n\n', Bootcamp)
 
 bootcamps.use('/createBootcamp', (req, res, next) => {
     bootcampsTableInit(tableName)
@@ -25,7 +27,25 @@ bootcamps.post('/createBootcamp', async (req, res) => {
 
 // Agrega un Usuario al Bootcamp
 bootcamps.post('/addUser', async (req, res) => {
-    res.json({Todo: 'Ok'})
+    try {
+        const { bootcampId, userId } = req.body
+        const bootcamp = await Bootcamp.findByPk(bootcampId)
+        console.log(bootcamp)
+        if (!bootcamp) return res.status(404).json({Mensaje: 'Bootcamp no encontrado'})
+
+        const user = await User.findByPk(userId)
+        if (!user) return res.status(404).json({Mensaje: 'Usuario no encontrado'})
+
+        await bootcamp.addUser(user)
+
+        const updatedBootcamp = await Bootcamp.findByPk(bootcampId)
+
+        res.json({'Usuario agregado al bootcamp correctamente': updatedBootcamp})
+        console.log('> controllers/bootcamp.controller.js: Usuario se ha añadido al Bootcamp')
+    } catch(error) {
+        res.json({Mensaje: 'No se ha podido agregar al Usuario en el Bootcamp'})
+        console.log('> controllers/bootcamp.controller.js: No se llevó a cabo el registro', error)
+    }
 })
 
 // Obtener los Bootcamp por id

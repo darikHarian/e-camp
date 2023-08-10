@@ -55,6 +55,10 @@ export const User = db.define('User', {
     updatedAt: {
         type: dt.DATE,
         defaultValue: Sequelize.NOW,
-        allowNull: true
+        allowNull: false
     }
 })
+
+User.ssociate = (models) => {
+    User.belongsToMany(models.Bootcamp, {through: 'UserBootcamp'})
+}

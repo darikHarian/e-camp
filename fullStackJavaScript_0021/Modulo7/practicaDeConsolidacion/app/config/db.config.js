@@ -1,6 +1,5 @@
 import dotenv from 'dotenv'
 import Sequelize from 'sequelize'
-import { db_connect } from '../models/index.js'
 
 dotenv.config(dotenv)
 
@@ -13,5 +12,16 @@ export const db = new Sequelize(
         dialect:'postgres',
         logging: false
 })
+
+// CONEXIÓN BASE DE DATOS
+export const db_connect = async () => {
+    try {
+        await db.authenticate()
+        .then(() => console.log('> modules/index.js: Connection has been established successfully'))
+        .catch(err=>console.error("> modules/index.js: Unable to connect to the database:", err));   
+    } catch (error) {
+        throw error;
+    }
+}
 
 db_connect()
