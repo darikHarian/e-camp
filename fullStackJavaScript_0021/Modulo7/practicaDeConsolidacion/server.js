@@ -1,6 +1,6 @@
 import express from 'express'
-import { users } from './controllers/user.controller.js'
-import { bootcamps } from './controllers/bootcamp.controller.js'
+import { users } from './app/controllers/user.controller.js'
+import { bootcamps } from './app/controllers/bootcamp.controller.js'
 
 const app = express();
 const PORT = 3100
