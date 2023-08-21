@@ -43,12 +43,6 @@ const User = db.define('User', {
     password: {
         type: dt.STRING,
         allowNull: false,
-        validate: {
-            len: {
-                args: [8, 10],
-                msg: 'La contraseña debe tener un mínimo de '
-            }
-        }
     },
     createdAt: {
         type: dt.DATE,

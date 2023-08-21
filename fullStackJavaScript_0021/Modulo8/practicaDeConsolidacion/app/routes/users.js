@@ -1,11 +1,11 @@
-import express from 'express'
-const router = express.Router()
+import express from 'express';
+import { createUser } from '../controllers/user.controller.js'
+const router = express.Router();
 
-import { User } from '../models/index.js'
-
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource')
+/* GET Creación de usuario */
+router.post('/createUser', function(req, res) {
+  console.log("SECRET_KEY:", process.env.SECRET_KEY)
+  createUser(req, res);
 })
 
-export default router
+export default router;

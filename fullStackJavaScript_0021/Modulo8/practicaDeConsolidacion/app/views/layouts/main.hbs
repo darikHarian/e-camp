@@ -2,9 +2,19 @@
 <html>
   <head>
     <title>{{title}}</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/toastr.min.css">
     <link rel='stylesheet' href='/stylesheets/style.css' />
+
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/axios.min.js"></script>
+    <script src="/jquery.min.js"></script>
+    <script src="/toastr.min.js"></script>
   </head>
   <body>
+    <!-- Barra de navegación -->
+    {{> navbar}}
+    <!-- Contenido de la vista -->
     {{{body}}}
   </body>
 </html>
