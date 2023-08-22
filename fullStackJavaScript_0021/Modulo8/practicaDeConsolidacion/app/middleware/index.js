@@ -5,6 +5,6 @@ export const auth = (req, res, next) => {
     verifyToken(req, res, next);
 };
 
-export const verifySignUp = (req, res) => {
-    verifyEmail(req, res);
+export const verifySignUp = (req, res, next) => {
+    verifyEmail(req, res, next);
 };
