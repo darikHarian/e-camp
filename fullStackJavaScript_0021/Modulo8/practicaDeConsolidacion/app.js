@@ -16,7 +16,7 @@ const { engine } = pkg;
 
 /* Express-Session Config */
 app.use(session({
-  secret: 'secret_key',
+  secret: process.env.SECRET_KEY,
   resave: false,
   saveUninitialized: true
 }));

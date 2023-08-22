@@ -1,4 +1,11 @@
-<main class="container text-center mt-5">
-    <h1>{{title}}</h1>
-    <p>Welcome to {{title}}</p>
+<main class="container text-center mt-5 pt-5">
+    <p class="fs-2 mt-5">Bienvenido a:</p>
+    <p class="fs-1 mt-5">{{title}}</p>
+    <div class="mt-5 pt-5">
+        {{#if session.isLoggedIn}}
+            <p class="fs-3 text-secondary mt-5 pt-5">Página principal</p>
+        {{else}}
+            <p class="fs-3 text-secondary mt-3 pt-5">Por favor inicie sesión para ver el contenido</p>
+        {{/if}}
+    </div>
 </main>

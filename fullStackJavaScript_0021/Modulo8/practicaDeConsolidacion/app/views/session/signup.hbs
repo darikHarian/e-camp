@@ -22,15 +22,15 @@
                 <label for="password-confirm" class="form-label fw-bold">Confirmar contraseña</label>
                 <input type="password" class="form-control text-center bg-secondary-subtle rounded-4" id="password-confirm" required>
             </div>
-            <div class="mt-4">
-                <button type="submit" class="btn btn-primary rounded-pill">Registrar</button>
+            <div class="mt-5">
+                <button type="submit" class="btn btn-primary rounded-pill">REGISTRAR USUARIO</button>
             </div>
         </form>
     </div>
 </main>
 
 <script>
-    /* Obteniendo variables */
+    /* Obtener variables */
     const form = document.querySelector('#form-signup');
     const firstName = document.querySelector('#firstName');
     const lastName = document.querySelector('#lastName');
@@ -42,10 +42,11 @@
     form.addEventListener('submit', async (event) => {
         //Evitar que se recargue la página
         event.preventDefault();
-        // Enviar la solicitud al servidor
+        
+        // Enviar la solicitud al Servidor
         let response;
         try {
-            response = await axios.post('/api/user/createUser', {
+            response = await axios.post('/api/user/createUser', { // Endpoint Backend
                 firstName: firstName.value,
                 lastName: lastName.value,
                 email: email.value,
@@ -56,12 +57,12 @@
                 timeOut: 2500
             })
         } catch(error) {
-            console.log(error)
+            console.log(error);
             toastr.error(error.response.data.err, {
                 timeOut: 2500
-            })
+            });
             return;
-        }
+        };
 
         // Guardar el Token que nos devuelve el Servidor en LocalStorage
         localStorage.setItem('token', response.data);
