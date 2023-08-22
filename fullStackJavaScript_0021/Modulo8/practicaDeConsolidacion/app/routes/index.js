@@ -1,6 +1,7 @@
 import session from 'express-session'
 import dotenv from 'dotenv';
 import express from 'express';
+import { verifySignUp } from '../middleware/index.js';
 const router = express.Router()
 
 import User from '../models/user.model.js';
@@ -19,7 +20,7 @@ router.get('/signup', (req, res, next) => {
 });
 
 /* POST Crear Usuario */
-router.post('/signup', (req, res, next) => { // Endpoint Backend para POSTMAN
+router.post('/signup', verifySignUp, (req, res, next) => { // Endpoint Backend para POSTMAN
   createUser(req, res);
 });
 
