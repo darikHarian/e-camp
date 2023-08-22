@@ -1,4 +1,4 @@
-import jwt from 'jsonwebtoken'
+import jwt from 'jsonwebtoken';
 
 export const verifyToken = (req, res, next, err) => {
     // Obtener Token guardado desde localStorage

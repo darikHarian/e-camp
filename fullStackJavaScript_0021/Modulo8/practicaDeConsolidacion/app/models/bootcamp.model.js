@@ -1,5 +1,5 @@
-import { Sequelize, DataTypes as dt } from 'sequelize'
-import db from '../config/db.config.js'
+import { Sequelize, DataTypes as dt } from 'sequelize';
+import db from '../config/db.config.js';
 
 const Bootcamp = db.define('Bootcamp', {
     id: {
@@ -45,6 +45,6 @@ const Bootcamp = db.define('Bootcamp', {
         defaultValue: Sequelize.NOW,
         allowNull: false
     }
-})
+});
 
-export default Bootcamp
+export default Bootcamp;

@@ -1,6 +1,6 @@
 import express from 'express';
-import { createUser, login, findAll, findUserById, updateUserById, deleteUserById } from '../controllers/user.controller.js'
-import { auth, verifySignUp } from '../middleware/index.js'
+import { createUser, login, findAll, findUserById, updateUserById, deleteUserById } from '../controllers/user.controller.js';
+import { auth, verifySignUp } from '../middleware/index.js';
 const router = express.Router();
 
 /* GET Creación de usuario */

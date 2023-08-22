@@ -1,5 +1,5 @@
-import { Sequelize, DataTypes as dt } from 'sequelize'
-import db from '../config/db.config.js'
+import { Sequelize, DataTypes as dt } from 'sequelize';
+import db from '../config/db.config.js';
 
 const User = db.define('User', {
     id: {
@@ -32,10 +32,6 @@ const User = db.define('User', {
     email: {
         type: dt.STRING(255),
         allowNull: false,
-        // unique: {
-        //     args: true,
-        //     msg: "El email ya está registrado"
-        // },
         validate: {
             isEmail: true,
         }
@@ -61,6 +57,6 @@ const User = db.define('User', {
         defaultValue: Sequelize.NOW,
         allowNull: false
     }
-})
+});
 
-export default User
+export default User;

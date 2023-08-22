@@ -55,7 +55,7 @@
             });
             toastr.success('Ahora serás redirigido a la página de inicio de sesión', '¡Usuario creado!', {
                 timeOut: 2500
-            })
+            });
         } catch(error) {
             console.log(error);
             toastr.error(error.response.data.err, {
@@ -70,6 +70,6 @@
         // Redirigir al Usuario a la página de Inicio de Sesión
         setTimeout(() => {
             window.location.href = '/api/signin';
-        },3000)
+        },3000);
     });
 </script>

@@ -1,20 +1,19 @@
-import express from 'express';
 import { User, Bootcamp } from '../models/index.js';
 
 /* Ruta para crear un nuevo Bootcamp */
-export const createBootcamp = async (req, res, err) => {
+export const createBootcamp = async (req, res) => {
     try {
         const { title, cue, description } = req.body;
         const newBootcamp = await Bootcamp.create({ title, cue, description });
         res.json({'Se ha creado el Bootcamp': newBootcamp});
-        console.log('> controllers/bootcamp.controller.js: Bootcamp creado');
+        console.log('Bootcamp creado correctamente');
     } catch(error) {
-        res.json({'Mensaje': `Creando la tabla ${tableName}`});
-        console.log(`> controllers/bootcamp.controller.js: Error al ingresar el nuevo registro a la tabla ${tableName}`, error);
+        res.json({'Mensaje': 'No se pudo realizar la solicitud', error});
+        console.log('Error al ingresar el nuevo registro a la tabla Bootcamps', error);
     };
 };
 
-export const addUser = async (req, res, err) => {
+export const addUser = async (req, res) => {
     try {
         const { bootcampId, userId } = req.body;
         const bootcamp = await Bootcamp.findByPk(bootcampId);
@@ -26,37 +25,37 @@ export const addUser = async (req, res, err) => {
         await bootcamp.addUser(user);
 
         res.json({'Usuario agregado al bootcamp correctamente': {'Usuario': user ,'Bootcamp': bootcamp}});
-        console.log(`> controllers/bootcamp.controller.js: Usuario id = ${user.id} se ha añadido al Bootcamp id = ${bootcamp.id}`);
+        console.log(`Usuario id = ${user.id} se ha añadido al Bootcamp id = ${bootcamp.id}`);
     } catch(error) {
-        res.json({Mensaje: 'No se ha podido agregar al Usuario en el Bootcamp'});
-        console.log('> controllers/bootcamp.controller.js: No se llevó a cabo el registro', error);
+        res.json({Mensaje: 'No se ha podido agregar al Usuario en el Bootcamp', error});
+        console.log('No se llevó a cabo el registro', error);
     };
 };
 
-export const findById = async (req, res, err) => {
+export const findById = async (req, res) => {
     try {
         const id = req.params.id;
         const bootcamp = await Bootcamp.findByPk(id, {include: { model: User, as: 'users' }});
 
         if (!bootcamp) {
             res.json({'Mensaje': 'El bootcamp no existe'});
-            console.log('> controllers/bootcamp.controller.js: El Bootcamp no existe');
+            console.log('El Bootcamp no existe');
         } else {
             res.json({'Bootcamp': bootcamp});
-            console.log('> controllers/bootcamp.controller.js: Bootcamp encontrado');
+            console.log('Bootcamp encontrado');
         }
     } catch(error) {
-        res.json({'Mensaje': 'El bootcamp no pudo ser encontrado'});
-        console.log('> controllers/bootcamp.controller.js: El bootcamp no pudo ser encontrado', error);
+        res.json({'Mensaje': 'El bootcamp no pudo ser encontrado', error});
+        console.log('El bootcamp no pudo ser encontrado', error);
     };
 };
-export const findAll = async (req, res, err) => {
+export const findAll = async (req, res) => {
     try {
         const bootcamps = await Bootcamp.findAll({include: { model: User, as: 'users' }});
         res.json(bootcamps);
-        console.log('> controllers/bootcamp.controller.js: Bootcamps y sus Usuarios encontrados');
+        console.log('Bootcamps y sus Usuarios encontrados');
     } catch(error) {
-        res.json({Mensaje: 'No se pudo obtener la lista de Bootcamps'});
-        console.log('> controllers/bootcamp.controller.js: No se pudo obtener la lista de Bootcamps', error);
+        res.json({Mensaje: 'No se pudo obtener la lista de Bootcamps', error});
+        console.log('No se pudo obtener la lista de Bootcamps', error);
     };
 };
