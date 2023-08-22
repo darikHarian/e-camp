@@ -32,10 +32,10 @@ const User = db.define('User', {
     email: {
         type: dt.STRING(255),
         allowNull: false,
-        unique: {
-            args: true,
-            msg: "El email ya está registrado"
-        },
+        // unique: {
+        //     args: true,
+        //     msg: "El email ya está registrado"
+        // },
         validate: {
             isEmail: true,
         }

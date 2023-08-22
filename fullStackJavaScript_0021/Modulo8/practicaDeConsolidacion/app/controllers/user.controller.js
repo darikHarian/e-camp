@@ -2,6 +2,7 @@ import express from 'express'
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
 import { User, Bootcamp } from '../models/index.js';
+import { verifyEmail } from '../middleware/verifySignUp.js';
 
 /* Ruta para crear un nuevo Usuario */
 export const createUser = async (req, res, err) => {
@@ -23,15 +24,17 @@ export const createUser = async (req, res, err) => {
             err: '> ./app/controllers/user.controller.js: Las contraseñas no coinciden'
         });
     };
+
+    verifyEmail(email);
   
-    // Verificar que el email no exista en la Base de Datos
-    const userExist = await User.findOne({where:{email}});
-    if (userExist) {
-        console.log(`> ./app.controllers/user.controller.js: El Usuario con ese Correo ya existe`, err);
-        return res.status(400).json({
-            err: `> ./app.controllers/user.controller.js: El Usuario con ese Correo ya existe`
-        });
-    };
+    // // Verificar que el email no exista en la Base de Datos
+    // const userExist = await User.findOne({where:{email}});
+    // if (userExist) {
+    //     console.log(`> ./app.controllers/user.controller.js: El Usuario con ese Correo ya existe`, err);
+    //     return res.status(400).json({
+    //         err: `> ./app.controllers/user.controller.js: El Usuario con ese Correo ya existe`
+    //     });
+    // };
   
     // Agregar el Usuario con Password Encriptado a la Base de Datos
     let newUser;
@@ -48,6 +51,7 @@ export const createUser = async (req, res, err) => {
             data: {
                 id: newUser.id,
                 email,
+                firstName
             }
         }, process.env.SECRET_KEY, {'expiresIn':'1h'}
     );
