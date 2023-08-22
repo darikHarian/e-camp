@@ -39,7 +39,7 @@ export const createUser = async (req, res) => {
     );
       
     // Retornar Token al Cliente
-    res.json({Mensaje: 'Usuario creado correctamente', token});
+    res.json({Mensaje: 'Usuario creado correctamente', newUser, Token: token});
 };
 
 /* Ruta para iniciar sesión */
