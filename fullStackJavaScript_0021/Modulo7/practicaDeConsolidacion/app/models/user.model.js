@@ -59,6 +59,6 @@ export const User = db.define('User', {
     }
 })
 
-User.ssociate = (models) => {
+User.associate = (models) => {
     User.belongsToMany(models.Bootcamp, {through: 'UserBootcamp'})
 }

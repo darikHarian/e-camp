@@ -13,6 +13,7 @@
     <script>
       function logout(){
         localStorage.removeItem('token');
+        location.reload();
         window.location.href = '/api/signout';
       }
     </script>

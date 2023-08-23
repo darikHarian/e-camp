@@ -11,7 +11,7 @@ dotenv.config(dotenv);
 
 /* GET Página de inicio */
 router.get('/', function(req, res, next) {  // Endpoint para Frontend
-  res.render('index', { session: req.session, title: 'Moódulo 8 - Práctica de consolidación' });
+  res.render('index', { session: req.session, title: 'Dashboard' });
 });
 
 /* GET Página de registro */
