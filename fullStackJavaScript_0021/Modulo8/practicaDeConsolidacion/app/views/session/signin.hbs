@@ -47,7 +47,7 @@
         };
 
         // Guardar el Token que nos devuelve el Servidor en LocalStorage
-        localStorage.setItem('token', response.data);
+        localStorage.setItem('token', JSON.stringify(response.data));
 
         //Redirigir al Usuario a la página principal
         setTimeout(() => {

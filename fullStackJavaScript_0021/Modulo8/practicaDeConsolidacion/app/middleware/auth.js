@@ -26,3 +26,13 @@ export const verifyToken = (req, res, next, err) => {
     // Continuar con la ejecución del código
     next();
 };
+
+export const showContent = (req, res, next) => {
+    req.session.isLoggedIn = true;
+    next();
+};
+
+export const hideContent = (req, res, next) => {
+    req.session.isLoggedIn = false;
+    next();
+};

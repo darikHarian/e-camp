@@ -7,10 +7,20 @@
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ms-auto">
         {{#if session.isLoggedIn}}
-          <li class="navbar-item"><button type="button" class="btn text-white mt-2">Loguead@ con éxito</button></li>
-          {{!-- <li class="navbar-item"><a href="#" class="nav-link"><button class="btn rounded-pill btn-outline-secondary">USUARIOS</button></a></li>
-          <li class="navbar-item"><a href="/api/bootcamp" class="nav-link"><button class="btn rounded-pill btn-outline-secondary">BOOTCAMPS</button></a></li> --}}
+          <li class="navbar-item"><button type="button" class="btn text-white fs-4">Bienvenid@ <span id="userName"></span></button></li>
           <li class="navbar-item"><a class="nav-link"><button class="btn rounded-pill btn-outline-danger" onclick="logout()">CERRAR SESIÓN</button></a></li>
+          <script>
+            const init = async (req, res) => {
+              // Recupero el token
+              const token = JSON.parse(localStorage.getItem('token'));
+              firstName = token.user.firstName;
+              lastName = token.user.lastName;
+
+              document.querySelector('#userName').innerHTML = `${firstName} ${lastName}`;
+            };
+
+            init();
+          </script>
         {{else}}
           <li class="navbar-item"><a href="/api/signup" class="nav-link active" aria-current="page"><button type="button" class="btn rounded-pill btn-outline-light">Registrarse</button></a></li>
           <li class="navbar-item"><a href="/api/signin" class="nav-link"><button type="button" class="btn rounded-pill btn-outline-success">Ingresar</button></a></li>
@@ -19,3 +29,4 @@
     </div>
   </div>
 </nav>
+

@@ -59,17 +59,17 @@ export const login = async (req, res) => {
         return res.status(400).json({'Contraseña incorrecta': 'Inténtelo otra vez'});
     };
 
-    // Crear Token
+    // Crear Token y encriptarlo
     const token = jwt.sign({
         data: {
             id: user.id,
             email: user.email,
-            nombre: user.nombre
+            nombre: user.firstName
         }
     }, process.env.SECRET_KEY, {'expiresIn':'1h'});
 
-    // Retornar Token al Cliente
-    res.json({Mensaje: 'Usuario logueado correctamente', token});
+    // Retornar Token encriptado al Cliente
+    res.json({Mensaje: 'Usuario logueado correctamente', user, token});
 };
 
 export const findAll = async (req, res) => {
